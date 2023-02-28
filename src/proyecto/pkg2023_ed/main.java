@@ -24,6 +24,8 @@ public class main {
         System.out.println("prueba ");
         
         System.out.println("jajajajaja");
+        
+        System.out.println("lol");
     }
     
 }
