@@ -1,5 +1,9 @@
-
 package proyecto.pkg2023_ed;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -10,8 +14,19 @@ public class Ordenes extends javax.swing.JFrame {
     /**
      * Creates new form Ordenes
      */
+    public Timer timer;
+
     public Ordenes() {
         initComponents();
+
+        timer = new Timer(1000, null);
+        timer.start();
+        timer.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Nueva Orden cada 15 segundos");
+            }
+        });
     }
 
     /**
@@ -69,9 +84,11 @@ public class Ordenes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new Ordenes().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
