@@ -14,14 +14,15 @@ public class Ordenes extends javax.swing.JFrame {
     /**
      * Creates new form Ordenes
      */
-    public Timer timer;
+    public Timer newOrderTime;
+    public Timer endGame;
 
     public Ordenes() {
         initComponents();
 
-        timer = new Timer(1000, null);
-        timer.start();
-        timer.addActionListener(new java.awt.event.ActionListener() {
+        newOrderTime = new Timer(1000, null);
+        newOrderTime.start();
+        newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Nueva Orden cada 15 segundos");
