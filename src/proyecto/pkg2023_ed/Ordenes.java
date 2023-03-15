@@ -25,7 +25,8 @@ public class Ordenes extends javax.swing.JFrame {
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Nueva Orden cada 15 segundos");
+                System.out.println("Nueva Orden");
+                
             }
         });
     }
