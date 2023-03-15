@@ -6,6 +6,7 @@ package proyecto.pkg2023_ed;
  * @author Joel Lopez
  */
 public class SuperAuto {
+    private int id;
     private int motorDeportivo;
     private int carroceria;
 
@@ -13,6 +14,7 @@ public class SuperAuto {
     }
 
     public SuperAuto(int motorDeportivo, int carroceria) {
+        this.id = 3;
         this.motorDeportivo = motorDeportivo;
         this.carroceria = carroceria;
     }
