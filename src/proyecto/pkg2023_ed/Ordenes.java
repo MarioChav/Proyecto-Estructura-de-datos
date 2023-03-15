@@ -3,7 +3,6 @@ package proyecto.pkg2023_ed;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import java.util.TimerTask;
 
 /**
  *
@@ -25,8 +24,10 @@ public class Ordenes extends javax.swing.JFrame {
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Nueva Orden");
-                
+                int min = 1;
+                int max = 3;
+                int randomInt = (int) Math.floor(Math.random() * (max - min + 1)) + min;
+                System.out.println(randomInt);
             }
         });
     }
