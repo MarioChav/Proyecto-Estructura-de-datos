@@ -27,7 +27,23 @@ public class Ordenes extends javax.swing.JFrame {
                 int min = 1;
                 int max = 3;
                 int randomInt = (int) Math.floor(Math.random() * (max - min + 1)) + min;
-                System.out.println(randomInt);
+                //System.out.println(randomInt);
+
+                Cola laCola = new Cola();
+
+                switch (randomInt) {
+                    case 1:
+                        laCola.encola(new NodoC("Maquinaria Pesada"));
+                        break;
+                    case 2:
+                        laCola.encola(new NodoC("Super Auto"));
+                        break;
+                    default:
+                        laCola.encola(new NodoC("Carro Carga"));
+                        break;
+                }
+                System.out.print(laCola);
+                
             }
         });
     }
