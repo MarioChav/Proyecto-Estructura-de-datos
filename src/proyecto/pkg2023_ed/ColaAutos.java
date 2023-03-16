@@ -5,7 +5,7 @@ package proyecto.pkg2023_ed;
  *
  * @author mfsv_
  */
-public class Cola {
+public class ColaAutos {
     //atributos
     NodoC frente;
     NodoC ultimo;
