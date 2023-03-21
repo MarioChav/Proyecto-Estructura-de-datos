@@ -4,17 +4,21 @@
  */
 package proyecto.pkg2023_ed;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mfsv_
  */
 public class Ingresar extends javax.swing.JFrame {
+    
+    private int salir;
 
-    /**
-     * Creates new form Ingresar
-     */
+    
     public Ingresar() {
         initComponents();
+        setTitle("Proyecto Car-Factory");
+        setResizable(false);
     }
 
     /**
@@ -40,6 +44,7 @@ public class Ingresar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(186, 242, 233));
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Bienvenido al juego Car-Factory");
@@ -97,6 +102,11 @@ public class Ingresar extends javax.swing.JFrame {
 
     private void btn_Salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Salir1ActionPerformed
         // TODO add your handling code here:
+        salir=JOptionPane.showConfirmDialog(null,"¿Desea salir?",
+        "Salir del Sistema",JOptionPane.YES_NO_OPTION);
+       if(salir==0){
+            System.exit(0);
+       } 
 
         //Cierro el formulario en pantalla
         this.dispose();
