@@ -17,7 +17,7 @@ public class Ingresar extends javax.swing.JFrame {
     
     public Ingresar() {
         initComponents();
-        setTitle("Proyecto Car-Factory");
+        setTitle("Car-Factory");
         setResizable(false);
     }
 
@@ -32,8 +32,9 @@ public class Ingresar extends javax.swing.JFrame {
 
         btn_Salir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btn_Salir1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btn_Salir1 = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         btn_Salir.setText("Salir");
         btn_Salir.addActionListener(new java.awt.event.ActionListener() {
@@ -45,50 +46,37 @@ public class Ingresar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(186, 242, 233));
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Bienvenido al juego Car-Factory");
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Car-Factory");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 260, 70));
 
-        btn_Salir1.setText("Salir");
-        btn_Salir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Salir1ActionPerformed(evt);
-            }
-        });
-
+        jButton1.setBackground(new java.awt.Color(51, 255, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jButton1)
-                .addGap(67, 67, 67)
-                .addComponent(btn_Salir1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btn_Salir1))
-                .addGap(47, 47, 47))
-        );
+        btn_Salir1.setBackground(new java.awt.Color(255, 0, 0));
+        btn_Salir1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        btn_Salir1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Salir1.setText("Salir");
+        btn_Salir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Salir1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/portadaOF.jpeg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 615));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,21 +90,18 @@ public class Ingresar extends javax.swing.JFrame {
 
     private void btn_Salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Salir1ActionPerformed
         // TODO add your handling code here:
-        salir=JOptionPane.showConfirmDialog(null,"¿Desea salir?",
-        "Salir del Sistema",JOptionPane.YES_NO_OPTION);
-       if(salir==0){
+        salir = JOptionPane.showConfirmDialog(null, "¿Desea salir?",
+                "Salir del Sistema", JOptionPane.YES_NO_OPTION);
+        if (salir == 0) {
             System.exit(0);
-       } 
+        }
 
         //Cierro el formulario en pantalla
         this.dispose();
     }//GEN-LAST:event_btn_Salir1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Ordenes ordenes = new Ordenes();
-        ordenes.setTitle("Ordenes");
-        ordenes.setLocationRelativeTo(null);
-        ordenes.setVisible(true);
+        new Instrucciones().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -158,6 +143,7 @@ public class Ingresar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Salir;
     private javax.swing.JButton btn_Salir1;
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
