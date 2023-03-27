@@ -13,10 +13,13 @@ public class Ordenes extends javax.swing.JFrame {
     /**
      * Creates new form Ordenes
      */
-    public Timer newOrderTime;
+    public Timer newOrderTime, newMaterial;
     public Timer endGame;
 
     public Ordenes() {
+        //lista();
+        int cantidadMateriales = 6;
+        insertar(cantidadMateriales, 0);
         initComponents();
 
         newOrderTime = new Timer(15000, null);
@@ -44,9 +47,77 @@ public class Ordenes extends javax.swing.JFrame {
                 }
                 System.out.print(laCola);
                 txtTotalDisponible.setText(laCola.toString());
-                
+
             }
+
         });
+    }
+
+    /*  public void lista() {
+
+        newMaterial = new Timer(1000, null);
+        newMaterial.start();
+        newMaterial.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ListaMateriales laLista = new ListaMateriales();
+                int contador = 0;
+
+                int mini = 1;
+                int maxi = 5;
+                int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
+
+                switch (randomIn) {
+                    case 1:
+                        laLista.inserta("Motor especial deportivo");
+                        contador++;
+                        break;
+                    case 2:
+                        laLista.inserta("Motor de carga");
+                        break;
+                    case 3:
+                        laLista.inserta("Carroceria");
+                        break;
+                    case 4:
+                        laLista.inserta("Carroceria especial");
+                        break;
+                    default:
+                        laLista.inserta("Llantas Unicas de trabajo");
+                        break;
+
+                }
+                System.out.println(laLista.toString());
+
+            }
+
+        });
+    }*/
+    public int insertar(int x, int y) {
+        if (x == y) {
+            
+            return x;
+        } else {
+            ListaMateriales laLista = new ListaMateriales();
+            int mini = 1;
+            int maxi = 5;
+            int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
+
+            if (randomIn == 1) {
+                laLista.inserta("Motor especial deportivo");
+            } else if (randomIn == 2) {
+                laLista.inserta("Motor de carga");
+            } else if (randomIn == 3) {
+                laLista.inserta("Carroceria");
+            } else if (randomIn == 4) {
+                laLista.inserta("Carroceria especial");
+            } else if (randomIn == 5) {
+                laLista.inserta("Llantas Unicas de trabajo");
+            }
+            System.out.println(laLista.toString());
+        }
+        
+        return insertar(x - 1, 0);
+
     }
 
     /**
@@ -230,7 +301,7 @@ public class Ordenes extends javax.swing.JFrame {
         inicio.setTitle("Ingreso del juego");
         inicio.setLocationRelativeTo(null);
         inicio.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

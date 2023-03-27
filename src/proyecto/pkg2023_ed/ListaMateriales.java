@@ -5,6 +5,7 @@ package proyecto.pkg2023_ed;
  * @author Joel Lopez
  */
 public class ListaMateriales {
+
     //atributos
     private NodoMateriales cabeza;
     private NodoMateriales ultimo;
@@ -28,7 +29,6 @@ public class ListaMateriales {
             temp.setBack(aux);
             aux.setNext(temp);
             temp.getNext().setBack(temp);
-
         }
     }
 
@@ -38,7 +38,7 @@ public class ListaMateriales {
         NodoMateriales aux = cabeza;
         String s = "";
         if (aux != null) {
-            s += aux + ", ";
+            s += aux + "";
             aux = aux.getNext();
             while (aux != cabeza) {
                 s += aux + ", ";
@@ -49,8 +49,8 @@ public class ListaMateriales {
         }
         return s;
     }
-    
-        /*private Nodo cabeza;
+
+    /*private Nodo cabeza;
 
     public void inserta(int tipo) {
         if (cabeza == null) { //caso 1    
@@ -68,4 +68,12 @@ public class ListaMateriales {
 //            cabeza.setNext(new Nodo(tipo));
         }
     }*/
+    public NodoMateriales getCabeza() {
+        return cabeza;
+    }
+
+    public void setCabeza(NodoMateriales cabeza) {
+        this.cabeza = cabeza;
+    }
+
 }

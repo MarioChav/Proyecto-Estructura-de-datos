@@ -43,7 +43,7 @@ public class NodoMateriales {
 
     @Override
     public String toString(){
-        return "Materiales: " + dato ;
+        return "" + dato ;
     }      
             
 }
