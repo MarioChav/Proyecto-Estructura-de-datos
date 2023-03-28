@@ -1,8 +1,10 @@
 package proyecto.pkg2023_ed;
 
+import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Timer;
+import javax.swing.*;
 
 /**
  *
@@ -18,11 +20,10 @@ public class Ordenes extends javax.swing.JFrame {
 
     public Ordenes() {
         //lista();
-        
+
         initComponents();
         int cantidadMateriales = 3;
         insertar(cantidadMateriales, 0);
-        
 
         newOrderTime = new Timer(15000, null);
         newOrderTime.start();
@@ -53,10 +54,20 @@ public class Ordenes extends javax.swing.JFrame {
             }
 
         });
+
+        //crea un grupo de botones para selecicionr solo boton 
+        ButtonGroup grupoBotones = new ButtonGroup();
+        grupoBotones.add(rbMaterial1);
+        grupoBotones.add(rbMaterial2);
+        grupoBotones.add(rbMaterial3);
+        grupoBotones.add(rbMaterial4);
+        grupoBotones.add(rbMaterial5);
+        grupoBotones.add(rbMaterial6);
+
     }
 
     public int insertar(int x, int y) {
-        if (x == y) {     
+        if (x == y) {
             return x;
         } else {
             ListaMateriales laLista = new ListaMateriales();
@@ -75,11 +86,29 @@ public class Ordenes extends javax.swing.JFrame {
             } else if (randomIn == 5) {
                 laLista.inserta("Llantas Unicas de trabajo");
             }
-            System.out.println(laLista.toString());
-            jRadioButton1.setText("Hola");
-            
+
+            /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
+            que elimiar un material de la lista*/
+            if (x == 1) {
+                rbMaterial1.setText(laLista.toString());
+            }
+            if (x == 2) {
+                rbMaterial2.setText(laLista.toString());
+            }
+            if (x == 3) {
+                rbMaterial3.setText(laLista.toString());
+            }
+            if (x == 4) {
+                rbMaterial4.setText(laLista.toString());
+            }
+            if (x == 5) {
+                rbMaterial5.setText(laLista.toString());
+            }
+            if (x == 6) {
+                rbMaterial6.setText(laLista.toString());
+            }
         }
-        
+
         return insertar(x - 1, 0);
 
     }
@@ -99,16 +128,19 @@ public class Ordenes extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtAuto = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        txtMaterial1 = new javax.swing.JLabel();
+        txtMaterial2 = new javax.swing.JLabel();
+        txtMaterial3 = new javax.swing.JLabel();
+        rbMaterial1 = new javax.swing.JRadioButton();
+        rbMaterial2 = new javax.swing.JRadioButton();
+        rbMaterial3 = new javax.swing.JRadioButton();
+        rbMaterial4 = new javax.swing.JRadioButton();
+        rbMaterial5 = new javax.swing.JRadioButton();
+        rbMaterial6 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        btnSelectMaterial = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -127,6 +159,15 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Contruccion de Auto Emblema Actual:");
 
+        txtMaterial1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaterial1.setToolTipText("");
+
+        txtMaterial2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaterial2.setToolTipText("");
+
+        txtMaterial3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaterial3.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,7 +180,11 @@ public class Ordenes extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAuto)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtMaterial3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                        .addComponent(txtMaterial2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,22 +194,16 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAuto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(25, 25, 25))
         );
-
-        jRadioButton1.setText("jRadioButton1");
-
-        jRadioButton2.setText("jRadioButton2");
-
-        jRadioButton3.setText("jRadioButton3");
-
-        jRadioButton4.setText("jRadioButton4");
-
-        jRadioButton5.setText("jRadioButton5");
-
-        jRadioButton6.setText("jRadioButton6");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Espacios Disponibles en");
@@ -174,7 +213,12 @@ public class Ordenes extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton3.setText("Seleccionar");
+        btnSelectMaterial.setText("Seleccionar");
+        btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectMaterialActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Basurero");
@@ -190,12 +234,12 @@ public class Ordenes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(txtTotalDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                        .addComponent(txtTotalDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,14 +248,14 @@ public class Ordenes extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addComponent(jButton1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSelectMaterial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(rbMaterial1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMaterial2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMaterial3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMaterial4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jLabel4)
                         .addComponent(jLabel5)))
                 .addGap(23, 23, 23))
@@ -220,40 +264,41 @@ public class Ordenes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtTotalDisponible, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton1)
+                        .addComponent(rbMaterial1)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(rbMaterial2)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
+                        .addComponent(rbMaterial3)
                         .addGap(16, 16, 16)
-                        .addComponent(jRadioButton4)
+                        .addComponent(rbMaterial4)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5)
+                        .addComponent(rbMaterial5)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton6)
+                        .addComponent(rbMaterial6)
                         .addGap(29, 29, 29)
-                        .addComponent(jButton3)
+                        .addComponent(btnSelectMaterial)
                         .addGap(17, 17, 17)
-                        .addComponent(jLabel4)))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(34, 34, 34))
+                        .addComponent(jLabel4)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtTotalDisponible, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146))))
         );
 
         pack();
@@ -267,6 +312,65 @@ public class Ordenes extends javax.swing.JFrame {
         inicio.setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSelectMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectMaterialActionPerformed
+        if (rbMaterial1.isSelected()) {
+            if (txtMaterial1.getText().isEmpty()) {
+                txtMaterial1.setText(rbMaterial1.getText());
+            } else if (txtMaterial2.getText().isEmpty()) {
+                txtMaterial2.setText(rbMaterial2.getText());
+            } else if (txtMaterial3.getText().isEmpty()) {
+                txtMaterial3.setText(rbMaterial3.getText());
+            }
+        } else if (rbMaterial2.isSelected()) {
+            if (txtMaterial1.getText().isEmpty()) {
+                txtMaterial1.setText(rbMaterial1.getText());
+            } else if (txtMaterial2.getText().isEmpty()) {
+                txtMaterial2.setText(rbMaterial2.getText());
+            } else if (txtMaterial3.getText().isEmpty()) {
+                txtMaterial3.setText(rbMaterial3.getText());
+            }
+        } else if (rbMaterial3.isSelected()) {
+            if (txtMaterial1.getText().isEmpty()) {
+                txtMaterial1.setText(rbMaterial1.getText());
+            } else if (txtMaterial2.getText().isEmpty()) {
+                txtMaterial2.setText(rbMaterial2.getText());
+            } else if (txtMaterial3.getText().isEmpty()) {
+                txtMaterial3.setText(rbMaterial3.getText());
+            }
+        } else if (rbMaterial4.isSelected()) {
+            if (txtMaterial1.getText().isEmpty()) {
+                txtMaterial1.setText(rbMaterial1.getText());
+            } else if (txtMaterial2.getText().isEmpty()) {
+                txtMaterial2.setText(rbMaterial2.getText());
+            } else if (txtMaterial3.getText().isEmpty()) {
+                txtMaterial3.setText(rbMaterial3.getText());
+            }
+        } else if (rbMaterial5.isSelected()) {
+            if (txtMaterial1.getText().isEmpty()) {
+                txtMaterial1.setText(rbMaterial1.getText());
+            } else if (txtMaterial2.getText().isEmpty()) {
+                txtMaterial2.setText(rbMaterial2.getText());
+            } else if (txtMaterial3.getText().isEmpty()) {
+                txtMaterial3.setText(rbMaterial3.getText());
+            }
+        } else if (rbMaterial5.isSelected()) {
+            if (txtMaterial1.getText().isEmpty()) {
+                txtMaterial1.setText(rbMaterial1.getText());
+            } else if (txtMaterial2.getText().isEmpty()) {
+                txtMaterial2.setText(rbMaterial2.getText());
+            } else if (txtMaterial3.getText().isEmpty()) {
+                txtMaterial3.setText(rbMaterial3.getText());
+            }
+        }
+        /*if (txtMaterial1.getText().isEmpty()) {
+            txtMaterial1.setText(rbMaterial1);
+        } else if (txtMaterial2.getText().isEmpty()){
+            
+        } else if (txtMaterial3.getText().isEmpty()){
+            
+        }*/
+    }//GEN-LAST:event_btnSelectMaterialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,9 +410,9 @@ public class Ordenes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSelectMaterial;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -317,13 +421,16 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton rbMaterial1;
+    private javax.swing.JRadioButton rbMaterial2;
+    private javax.swing.JRadioButton rbMaterial3;
+    private javax.swing.JRadioButton rbMaterial4;
+    private javax.swing.JRadioButton rbMaterial5;
+    private javax.swing.JRadioButton rbMaterial6;
     private javax.swing.JLabel txtAuto;
+    private javax.swing.JLabel txtMaterial1;
+    private javax.swing.JLabel txtMaterial2;
+    private javax.swing.JLabel txtMaterial3;
     private javax.swing.JLabel txtTotalDisponible;
     // End of variables declaration//GEN-END:variables
 }
