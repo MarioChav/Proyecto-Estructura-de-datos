@@ -18,9 +18,11 @@ public class Ordenes extends javax.swing.JFrame {
 
     public Ordenes() {
         //lista();
-        int cantidadMateriales = 6;
-        insertar(cantidadMateriales, 0);
+        
         initComponents();
+        int cantidadMateriales = 3;
+        insertar(cantidadMateriales, 0);
+        
 
         newOrderTime = new Timer(15000, null);
         newOrderTime.start();
@@ -53,48 +55,8 @@ public class Ordenes extends javax.swing.JFrame {
         });
     }
 
-    /*  public void lista() {
-
-        newMaterial = new Timer(1000, null);
-        newMaterial.start();
-        newMaterial.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ListaMateriales laLista = new ListaMateriales();
-                int contador = 0;
-
-                int mini = 1;
-                int maxi = 5;
-                int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
-
-                switch (randomIn) {
-                    case 1:
-                        laLista.inserta("Motor especial deportivo");
-                        contador++;
-                        break;
-                    case 2:
-                        laLista.inserta("Motor de carga");
-                        break;
-                    case 3:
-                        laLista.inserta("Carroceria");
-                        break;
-                    case 4:
-                        laLista.inserta("Carroceria especial");
-                        break;
-                    default:
-                        laLista.inserta("Llantas Unicas de trabajo");
-                        break;
-
-                }
-                System.out.println(laLista.toString());
-
-            }
-
-        });
-    }*/
     public int insertar(int x, int y) {
-        if (x == y) {
-            
+        if (x == y) {     
             return x;
         } else {
             ListaMateriales laLista = new ListaMateriales();
@@ -114,6 +76,8 @@ public class Ordenes extends javax.swing.JFrame {
                 laLista.inserta("Llantas Unicas de trabajo");
             }
             System.out.println(laLista.toString());
+            jRadioButton1.setText("Hola");
+            
         }
         
         return insertar(x - 1, 0);
