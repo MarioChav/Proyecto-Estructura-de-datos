@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package proyecto.pkg2023_ed;
 
 import javax.swing.JOptionPane;
@@ -18,6 +15,7 @@ public class Instrucciones extends javax.swing.JFrame {
         initComponents();
         setTitle("Car-Factory/instrucciones");
         setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -38,6 +36,7 @@ public class Instrucciones extends javax.swing.JFrame {
         Instrucciones5 = new javax.swing.JLabel();
         Instrucciones6 = new javax.swing.JLabel();
         Instrucciones7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -49,6 +48,7 @@ public class Instrucciones extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(51, 255, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Inicio");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,64 +57,67 @@ public class Instrucciones extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
-        Instrucciones.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones.setText("Las ordenes se deben construir en el orden de ingreso. Es decir, debes cumplir con la última orden antes de comenzar con una nueva. ");
         Instrucciones.setOpaque(true);
         getContentPane().add(Instrucciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
-        Instrucciones1.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones1.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones1.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones1.setText("En cada turno, recibirás una orden aleatoria para construir un auto emblemático de entre los 3 disponibles: ");
         Instrucciones1.setOpaque(true);
         getContentPane().add(Instrucciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
-        Instrucciones2.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones2.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones2.setForeground(new java.awt.Color(255, 255, 0));
-        Instrucciones2.setText("Super auto deportivo, auto de carga de alta gama o maquinaria de última \ntecnología para trabajos pesados. ");
+        Instrucciones2.setText("Super auto deportivo, auto de carga de alta gama o maquinaria de última \ntecnología para trabajos pesados. "); // NOI18N
         Instrucciones2.setOpaque(true);
         getContentPane().add(Instrucciones2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
-        Instrucciones3.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones3.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones3.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones3.setText("Tendrás 8 minutos para construir la mayor cantidad de autos emblemáticos posible y ganar dinero. ");
         Instrucciones3.setOpaque(true);
         getContentPane().add(Instrucciones3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
-        Instrucciones4.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones4.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones4.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones4.setText("Comienzas con un presupuesto inicial de $15000. Cada vez que construyas un auto emblemático, ");
         Instrucciones4.setOpaque(true);
         getContentPane().add(Instrucciones4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        Instrucciones5.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones5.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones5.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones5.setText("ganarás una cantidad específica de dinero que se sumará a tu presupuesto. ");
         Instrucciones5.setOpaque(true);
         getContentPane().add(Instrucciones5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
-        Instrucciones6.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones6.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones6.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones6.setText("Si terminas con órdenes pendientes o con tu presupuesto en negativo, perderás.");
         Instrucciones6.setOpaque(true);
         getContentPane().add(Instrucciones6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
-        Instrucciones7.setBackground(new java.awt.Color(102, 102, 102));
+        Instrucciones7.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Instrucciones7.setForeground(new java.awt.Color(255, 255, 0));
         Instrucciones7.setText("El objetivo del juego es construir la mayor cantidad de autos emblemáticos posible y ganar dinero. ");
         Instrucciones7.setOpaque(true);
         getContentPane().add(Instrucciones7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/garaje.jpeg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 480));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pocision-ganador_1.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 260, 200, 170));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 450));
 
         jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -123,6 +126,11 @@ public class Instrucciones extends javax.swing.JFrame {
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/salir.png"))); // NOI18N
         jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -140,6 +148,15 @@ public class Instrucciones extends javax.swing.JFrame {
         ordenes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        salir = JOptionPane.showConfirmDialog(null, "¿Desea salir?",
+                "Salir del Sistema", JOptionPane.YES_NO_OPTION);
+        if (salir == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +204,7 @@ public class Instrucciones extends javax.swing.JFrame {
     private javax.swing.JLabel Instrucciones7;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
