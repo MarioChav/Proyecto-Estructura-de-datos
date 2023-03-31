@@ -11,9 +11,10 @@ import javax.swing.*;
  * @author Joel Lopez
  */
 public class Ordenes extends javax.swing.JFrame {
-    
+
     private int salir;
     private int menuPrincipal;
+    ListaMateriales laLista = new ListaMateriales();
 
     /**
      * Creates new form Ordenes
@@ -22,21 +23,21 @@ public class Ordenes extends javax.swing.JFrame {
     public Timer endGame;
 
     public Ordenes() {
-        
+
         //Formato de pagina
         initComponents();
         setTitle("Car-Factory/Ordenes");
         setResizable(false);
         this.setLocationRelativeTo(null);
-        //
-        
-        
-        
-        
-        //lista();
 
         int cantidadMateriales = 3;
         insertar(cantidadMateriales, 0);
+        agregarDatos(cantidadMateriales, 0);
+
+        NodoMateriales aux;
+        aux = laLista.getCabeza();
+
+        //System.out.println(laLista.ImprimirUno(3, aux));
 
         newOrderTime = new Timer(15000, null);
         newOrderTime.start();
@@ -83,46 +84,57 @@ public class Ordenes extends javax.swing.JFrame {
         if (x == y) {
             return x;
         } else {
-            ListaMateriales laLista = new ListaMateriales();
+            //ListaMateriales laLista = new ListaMateriales();
             int mini = 1;
             int maxi = 5;
             int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
 
             if (randomIn == 1) {
-                laLista.inserta("Motor especial deportivo");
+                laLista.inserta("Motor especial deportivo", 1);
             } else if (randomIn == 2) {
-                laLista.inserta("Motor de carga");
+                laLista.inserta("Motor de carga", 2);
             } else if (randomIn == 3) {
-                laLista.inserta("Carroceria");
+                laLista.inserta("Carroceria", 3);
             } else if (randomIn == 4) {
-                laLista.inserta("Carroceria especial");
+                laLista.inserta("Carroceria especial", 4);
             } else if (randomIn == 5) {
-                laLista.inserta("Llantas Unicas de trabajo");
+                laLista.inserta("Llantas Unicas de trabajo", 5);
             }
-
             /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
             que elimiar un material de la lista*/
-            if (x == 1) {
-                rbMaterial1.setText(laLista.toString());
-            }
-            if (x == 2) {
-                rbMaterial2.setText(laLista.toString());
-            }
-            if (x == 3) {
-                rbMaterial3.setText(laLista.toString());
-            }
-            if (x == 4) {
-                rbMaterial4.setText(laLista.toString());
-            }
-            if (x == 5) {
-                rbMaterial5.setText(laLista.toString());
-            }
-            if (x == 6) {
-                rbMaterial6.setText(laLista.toString());
-            }
+
         }
 
         return insertar(x - 1, 0);
+
+    }
+
+    public int agregarDatos(int x, int y) {
+        if (x == y) {
+            return x;
+        } else {
+            NodoMateriales aux;
+            aux = laLista.getCabeza();
+            if (x == 1) {
+                rbMaterial1.setText(aux.getDato());
+            }
+            if (x == 2) {
+                rbMaterial2.setText(aux.getNext().getDato());
+            }
+            if (x == 3) {
+                rbMaterial3.setText(aux.getNext().getNext().getDato());
+            }
+            if (x == 4) {
+                rbMaterial4.setText(aux.getNext().getNext().getNext().getDato());
+            }
+            if (x == 5) {
+                rbMaterial5.setText(aux.getNext().getNext().getNext().getNext().getDato());
+            }
+            if (x == 6) {
+                rbMaterial6.setText(aux.getNext().getNext().getNext().getNext().getNext().getDato());
+            }
+        }
+        return agregarDatos(x - 1, 0);
 
     }
 
@@ -230,6 +242,11 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel2.setText("la cinta transportadora");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         btnSelectMaterial.setText("Seleccionar");
         btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
@@ -288,24 +305,24 @@ public class Ordenes extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addComponent(jButton1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnSelectMaterial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rbMaterial1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)))
-                .addGap(23, 23, 23))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnSelectMaterial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbMaterial1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,58 +382,51 @@ public class Ordenes extends javax.swing.JFrame {
             if (txtMaterial1.getText().isEmpty()) {
                 txtMaterial1.setText(rbMaterial1.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial1.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial1.getText());
             }
         } else if (rbMaterial2.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial2.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
                 txtMaterial2.setText(rbMaterial2.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial2.getText());
             }
         } else if (rbMaterial3.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial3.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial3.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
                 txtMaterial3.setText(rbMaterial3.getText());
             }
         } else if (rbMaterial4.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial4.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial4.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial4.getText());
             }
         } else if (rbMaterial5.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial5.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial5.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial5.getText());
             }
         } else if (rbMaterial5.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial6.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial6.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial6.getText());
             }
         }
-        /*if (txtMaterial1.getText().isEmpty()) {
-            txtMaterial1.setText(rbMaterial1);
-        } else if (txtMaterial2.getText().isEmpty()){
-            
-        } else if (txtMaterial3.getText().isEmpty()){
-            
-        }*/
     }//GEN-LAST:event_btnSelectMaterialActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -435,6 +445,10 @@ public class Ordenes extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
