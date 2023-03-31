@@ -5,16 +5,19 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
  * @author Joel Lopez
  */
 public class Ordenes extends javax.swing.JFrame {
-    
+
     private int salir;
     private int menuPrincipal;
-
+    private static int segundosTranscurridos = 0;
+    private static Timer timer;
     /**
      * Creates new form Ordenes
      */
@@ -22,23 +25,17 @@ public class Ordenes extends javax.swing.JFrame {
     public Timer endGame;
 
     public Ordenes() {
-        
+
         //Formato de pagina
         initComponents();
         setTitle("Car-Factory/Ordenes");
         setResizable(false);
         this.setLocationRelativeTo(null);
-        //
-        
-        
-        
-        
-        //lista();
 
         int cantidadMateriales = 3;
         insertar(cantidadMateriales, 0);
 
-        newOrderTime = new Timer(15000, null);
+        /*newOrderTime = new Timer(15000, null);
         newOrderTime.start();
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -66,7 +63,9 @@ public class Ordenes extends javax.swing.JFrame {
 
             }
 
-        });
+        });*/
+        addOrder();
+        
 
         //crea un grupo de botones para selecicionr solo boton 
         ButtonGroup grupoBotones = new ButtonGroup();
@@ -78,7 +77,57 @@ public class Ordenes extends javax.swing.JFrame {
         grupoBotones.add(rbMaterial6);
 
     }
+    
+    public void addOrder() {
+        TimerOrder();
 
+        // Obtener el tiempo transcurrido
+        int tiempoTranscurrido = segundosTranscurridos;
+
+        // Imprimir el tiempo transcurrido
+        
+        if (tiempoTranscurrido==5) {
+            int min = 1;
+            int max = 3;
+            int randomInt = (int) Math.floor(Math.random() * (max - min + 1)) + min;
+            //System.out.println(randomInt);
+
+            ColaAutos laCola = new ColaAutos();
+
+            switch (randomInt) {
+                case 1:
+                    laCola.encola(new NodoC("Maquinaria Pesada"));
+                    break;
+                case 2:
+                    laCola.encola(new NodoC("Super Auto"));
+                    break;
+                default:
+                    laCola.encola(new NodoC("Carro Carga"));
+                    break;
+            }
+            txtTotalDisponible.setText(laCola.toString());
+            TimerOrder();
+        }
+    }
+    
+    public void TimerOrder () {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                segundosTranscurridos++;
+            }
+        }, 0, 1000); // se ejecuta cada 1000 milisegundos (1 segundo)
+
+        // Esperar unos segundos para que el Timer tenga tiempo de ejecutarse
+        try {
+            Thread.sleep(5000); // Esperar 5 segundos
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+    } 
+    
     public int insertar(int x, int y) {
         if (x == y) {
             return x;
