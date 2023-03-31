@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author Joel Lopez
  */
 public class Ordenes extends javax.swing.JFrame {
-    
+
     private int salir;
     private int menuPrincipal;
 
@@ -22,19 +22,15 @@ public class Ordenes extends javax.swing.JFrame {
     public Timer endGame;
 
     public Ordenes() {
-        
+
         //Formato de pagina
         initComponents();
         setTitle("Car-Factory/Ordenes");
         setResizable(false);
         this.setLocationRelativeTo(null);
         //
-        
-        
-        
-        
-        //lista();
 
+        //lista();
         int cantidadMateriales = 3;
         insertar(cantidadMateriales, 0);
 
@@ -365,52 +361,53 @@ public class Ordenes extends javax.swing.JFrame {
             if (txtMaterial1.getText().isEmpty()) {
                 txtMaterial1.setText(rbMaterial1.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial1.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial1.getText());
             }
         } else if (rbMaterial2.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial2.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
                 txtMaterial2.setText(rbMaterial2.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial2.getText());
             }
         } else if (rbMaterial3.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial3.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial3.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
                 txtMaterial3.setText(rbMaterial3.getText());
             }
         } else if (rbMaterial4.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial4.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial4.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial4.getText());
             }
         } else if (rbMaterial5.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial5.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial5.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial5.getText());
             }
         } else if (rbMaterial5.isSelected()) {
             if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
+                txtMaterial1.setText(rbMaterial6.getText());
             } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
+                txtMaterial2.setText(rbMaterial6.getText());
             } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
+                txtMaterial3.setText(rbMaterial6.getText());
             }
         }
-        /*if (txtMaterial1.getText().isEmpty()) {
+
+        /*if ....(txtMaterial1.getText().isEmpty()) {
             txtMaterial1.setText(rbMaterial1);
         } else if (txtMaterial2.getText().isEmpty()){
             
