@@ -89,7 +89,7 @@
               </Group>
               <EmptySpace pref="214" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
+
                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel1" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="127" max="-2" attributes="0"/>
@@ -105,11 +105,11 @@
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-=======
+
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
->>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
+
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">

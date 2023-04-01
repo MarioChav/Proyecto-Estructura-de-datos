@@ -64,7 +64,7 @@ public class ListaMateriales {
             }
         }
     }
-<<<<<<< HEAD
+
     
     //eliminar material de la cinta
     /*public void eliminar(int dato) {
@@ -88,8 +88,6 @@ public class ListaMateriales {
             }
         }
     }*/
-=======
->>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
 
     //to String
     @Override
