@@ -11,12 +11,14 @@ package proyecto.pkg2023_ed;
 public class NodoMateriales {
     //atributos
     private String dato;
+    private int id;
     private NodoMateriales next;
     private NodoMateriales back;
             
     //contructor parametrizado
-    public NodoMateriales(String dato){
+    public NodoMateriales(String dato, int id){
         this.dato = dato;
+        this.id=id;
     }
     
     //Setter y Getter
@@ -40,6 +42,16 @@ public class NodoMateriales {
     public void setBack(NodoMateriales back){
         this.back=back;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
     @Override
     public String toString(){

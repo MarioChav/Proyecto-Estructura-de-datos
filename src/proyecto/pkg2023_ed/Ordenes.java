@@ -17,9 +17,14 @@ public class Ordenes extends javax.swing.JFrame {
 
     private int salir;
     private int menuPrincipal;
+<<<<<<< HEAD
     private static int segundosTranscurridos = 0;
     private static Timer timer;
     //Aqui van las costantes para los carros y materiales
+=======
+    ListaMateriales laLista = new ListaMateriales();
+
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
     /**
      * Creates new form Ordenes
      */
@@ -40,8 +45,18 @@ public class Ordenes extends javax.swing.JFrame {
 
         int cantidadMateriales = 3;
         insertar(cantidadMateriales, 0);
+        agregarDatos(cantidadMateriales, 0);
 
+<<<<<<< HEAD
         newOrderTime = new Timer(1000, null);
+=======
+        NodoMateriales aux;
+        aux = laLista.getCabeza();
+
+        //System.out.println(laLista.ImprimirUno(3, aux));
+
+        newOrderTime = new Timer(15000, null);
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
         newOrderTime.start();
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -83,6 +98,7 @@ public class Ordenes extends javax.swing.JFrame {
 
     }
 
+<<<<<<< HEAD
     private void ImprimirColaString() {
 
         System.out.println("Desde boton");
@@ -248,29 +264,31 @@ public class Ordenes extends javax.swing.JFrame {
         return valido;
     }
 
+=======
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
     public int insertar(int x, int y) {
         if (x == y) {
             return x;
         } else {
-            ListaMateriales laLista = new ListaMateriales();
+            //ListaMateriales laLista = new ListaMateriales();
             int mini = 1;
             int maxi = 5;
             int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
 
             if (randomIn == 1) {
-                laLista.inserta("Motor especial deportivo");
+                laLista.inserta("Motor especial deportivo", 1);
             } else if (randomIn == 2) {
-                laLista.inserta("Motor de carga");
+                laLista.inserta("Motor de carga", 2);
             } else if (randomIn == 3) {
-                laLista.inserta("Carroceria");
+                laLista.inserta("Carroceria", 3);
             } else if (randomIn == 4) {
-                laLista.inserta("Carroceria especial");
+                laLista.inserta("Carroceria especial", 4);
             } else if (randomIn == 5) {
-                laLista.inserta("Llantas Unicas de trabajo");
+                laLista.inserta("Llantas Unicas de trabajo", 5);
             }
-
             /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
             que elimiar un material de la lista*/
+<<<<<<< HEAD
             if (x == 1) {
                 rbMaterial1.setText(laLista.toString());
             }
@@ -292,17 +310,53 @@ public class Ordenes extends javax.swing.JFrame {
                 rbMaterial6.setEnabled(true);
                 rbMaterial6.setText(laLista.toString());
             }
+=======
+
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
         }
 
         return insertar(x - 1, 0);
 
     }
+<<<<<<< HEAD
     /*hay que enviar un id para identificar que hay que eliminar porque pueden 
     haber varios nombres iguales */
     public void eliminarMaterial(String pMaterial) {
         ListaMateriales laListaM = new ListaMateriales();
         //laListaM.eliminar(pMaterial);
     }
+=======
+
+    public int agregarDatos(int x, int y) {
+        if (x == y) {
+            return x;
+        } else {
+            NodoMateriales aux;
+            aux = laLista.getCabeza();
+            if (x == 1) {
+                rbMaterial1.setText(aux.getDato());
+            }
+            if (x == 2) {
+                rbMaterial2.setText(aux.getNext().getDato());
+            }
+            if (x == 3) {
+                rbMaterial3.setText(aux.getNext().getNext().getDato());
+            }
+            if (x == 4) {
+                rbMaterial4.setText(aux.getNext().getNext().getNext().getDato());
+            }
+            if (x == 5) {
+                rbMaterial5.setText(aux.getNext().getNext().getNext().getNext().getDato());
+            }
+            if (x == 6) {
+                rbMaterial6.setText(aux.getNext().getNext().getNext().getNext().getNext().getDato());
+            }
+        }
+        return agregarDatos(x - 1, 0);
+
+    }
+
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -425,6 +479,11 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel2.setText("la cinta transportadora");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         btnSelectMaterial.setText("Seleccionar");
         btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
@@ -483,6 +542,7 @@ public class Ordenes extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -496,6 +556,11 @@ public class Ordenes extends javax.swing.JFrame {
                             .addComponent(errorMaterial6, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+=======
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
                             .addComponent(jLabel6)
                             .addComponent(jButton1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -508,8 +573,14 @@ public class Ordenes extends javax.swing.JFrame {
                                 .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel4)
+<<<<<<< HEAD
                             .addComponent(jLabel5))))
                 .addGap(23, 23, 23))
+=======
+                            .addComponent(jLabel5)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,10 +731,16 @@ public class Ordenes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+<<<<<<< HEAD
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         ImprimirColaString();
     }//GEN-LAST:event_jButton3ActionPerformed
+=======
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+>>>>>>> 6f9d8fe37a9d8ba0632d95dd626cb525a2692dfa
 
     /**
      * @param args the command line arguments
