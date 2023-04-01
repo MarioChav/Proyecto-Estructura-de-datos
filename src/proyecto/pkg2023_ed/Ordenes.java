@@ -5,9 +5,10 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import java.util.Timer;
-import java.util.TimerTask;
 
+/*import java.util.Timer;
+import java.util.TimerTask;
+ */
 /**
  *
  * @author Joel Lopez
@@ -18,11 +19,13 @@ public class Ordenes extends javax.swing.JFrame {
     private int menuPrincipal;
     private static int segundosTranscurridos = 0;
     private static Timer timer;
+    //Aqui van las costantes para los carros y materiales
     /**
      * Creates new form Ordenes
      */
     public Timer newOrderTime, newMaterial;
     public Timer endGame;
+    ColaAutos laCola = new ColaAutos();
 
     public Ordenes() {
 
@@ -31,15 +34,14 @@ public class Ordenes extends javax.swing.JFrame {
         setTitle("Car-Factory/Ordenes");
         setResizable(false);
         this.setLocationRelativeTo(null);
+        rbMaterial4.setEnabled(false);
+        rbMaterial5.setEnabled(false);
+        rbMaterial6.setEnabled(false);
 
-        //
-
-
-        //lista();
         int cantidadMateriales = 3;
         insertar(cantidadMateriales, 0);
 
-        /*newOrderTime = new Timer(15000, null);
+        newOrderTime = new Timer(1000, null);
         newOrderTime.start();
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -47,10 +49,8 @@ public class Ordenes extends javax.swing.JFrame {
                 int min = 1;
                 int max = 3;
                 int randomInt = (int) Math.floor(Math.random() * (max - min + 1)) + min;
-                //System.out.println(randomInt);
 
-                ColaAutos laCola = new ColaAutos();
-
+                //ColaAutos laCola = new ColaAutos();
                 switch (randomInt) {
                     case 1:
                         laCola.encola(new NodoC("Maquinaria Pesada"));
@@ -62,14 +62,15 @@ public class Ordenes extends javax.swing.JFrame {
                         laCola.encola(new NodoC("Carro Carga"));
                         break;
                 }
-                System.out.print(laCola);
-                txtTotalDisponible.setText(laCola.toString());
+                System.out.flush();
 
+                txtTotalDisponible.setText(laCola.frente.getDato());
+                //ImprimirColaString();
+                //System.out.print(laCola);
+                //System.out.println("");
             }
 
-        });*/
-        addOrder();
-        
+        });
 
         //crea un grupo de botones para selecicionr solo boton 
         ButtonGroup grupoBotones = new ButtonGroup();
@@ -81,57 +82,172 @@ public class Ordenes extends javax.swing.JFrame {
         grupoBotones.add(rbMaterial6);
 
     }
-    
-    public void addOrder() {
-        TimerOrder();
 
-        // Obtener el tiempo transcurrido
-        int tiempoTranscurrido = segundosTranscurridos;
+    private void ImprimirColaString() {
 
-        // Imprimir el tiempo transcurrido
-        
-        if (tiempoTranscurrido==5) {
-            int min = 1;
-            int max = 3;
-            int randomInt = (int) Math.floor(Math.random() * (max - min + 1)) + min;
-            //System.out.println(randomInt);
+        System.out.println("Desde boton");
+        System.out.print(laCola);
+        System.out.println("");
 
-            ColaAutos laCola = new ColaAutos();
-
-            switch (randomInt) {
-                case 1:
-                    laCola.encola(new NodoC("Maquinaria Pesada"));
-                    break;
-                case 2:
-                    laCola.encola(new NodoC("Super Auto"));
-                    break;
-                default:
-                    laCola.encola(new NodoC("Carro Carga"));
-                    break;
-            }
-            txtTotalDisponible.setText(laCola.toString());
-            TimerOrder();
-        }
     }
-    
-    public void TimerOrder () {
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                segundosTranscurridos++;
-            }
-        }, 0, 1000); // se ejecuta cada 1000 milisegundos (1 segundo)
 
-        // Esperar unos segundos para que el Timer tenga tiempo de ejecutarse
-        try {
-            Thread.sleep(5000); // Esperar 5 segundos
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    private boolean ValidarOrdenMateriales() {
+        boolean valido = false;
+        switch (laCola.frente.getDato()) {
+            case "Carro Carga":
+                if (rbMaterial1.isSelected()) {
+                    if (rbMaterial1.getText().equals("Motor de carga") || rbMaterial1.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial1.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial2.isSelected()) {
+                    if (rbMaterial2.getText().equals("Motor de carga") || rbMaterial2.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial2.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial3.isSelected()) {
+                    if (rbMaterial3.getText().equals("Motor de carga") || rbMaterial3.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial3.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial4.isSelected()) {
+                    if (rbMaterial4.getText().equals("Motor de carga") || rbMaterial4.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial4.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial5.isSelected()) {
+                    if (rbMaterial5.getText().equals("Motor de carga") || rbMaterial5.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial5.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial6.isSelected()) {
+                    if (rbMaterial6.getText().equals("Motor de carga") || rbMaterial6.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial6.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                break;
+            case "Super Auto":
+                if (rbMaterial1.isSelected()) {
+                    if (rbMaterial1.getText().equals("Motor especial deportivo") || rbMaterial1.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial1.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial2.isSelected()) {
+                    if (rbMaterial2.getText().equals("Motor especial deportivo") || rbMaterial2.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial2.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial3.isSelected()) {
+                    if (rbMaterial3.getText().equals("Motor especial deportivo") || rbMaterial3.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial3.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial4.isSelected()) {
+                    if (rbMaterial4.getText().equals("Motor especial deportivo") || rbMaterial4.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial4.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial5.isSelected()) {
+                    if (rbMaterial5.getText().equals("Motor especial deportivo") || rbMaterial5.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial5.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial6.isSelected()) {
+                    if (rbMaterial6.getText().equals("Motor especial deportivo") || rbMaterial6.getText().equals("Carroceria")) {
+                        valido = true;
+                    } else {
+                        errorMaterial6.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                break;
+            case "Maquinaria Pesada":
+                if (rbMaterial1.isSelected()) {
+                    if (rbMaterial1.getText().equals("Motor de carga") || rbMaterial1.getText().equals("Llantas Unicas de trabajo") || rbMaterial1.getText().equals("Carroceria especial")) {
+                        valido = true;
+                    } else {
+                        errorMaterial1.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial2.isSelected()) {
+                    if (rbMaterial2.getText().equals("Motor de carga") || rbMaterial2.getText().equals("Llantas Unicas de trabajo") || rbMaterial2.getText().equals("Carroceria especial")) {
+                        valido = true;
+                    } else {
+                        errorMaterial2.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial3.isSelected()) {
+                    if (rbMaterial3.getText().equals("Motor de carga") || rbMaterial3.getText().equals("Llantas Unicas de trabajo") || rbMaterial3.getText().equals("Carroceria especial")) {
+                        valido = true;
+                    } else {
+                        errorMaterial3.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial4.isSelected()) {
+                    if (rbMaterial4.getText().equals("Motor de carga") || rbMaterial4.getText().equals("Llantas Unicas de trabajo") || rbMaterial4.getText().equals("Carroceria especial")) {
+                        valido = true;
+                    } else {
+                        errorMaterial4.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial5.isSelected()) {
+                    if (rbMaterial5.getText().equals("Motor de carga") || rbMaterial5.getText().equals("Llantas Unicas de trabajo") || rbMaterial5.getText().equals("Carroceria especial")) {
+                        valido = true;
+                    } else {
+                        errorMaterial5.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                if (rbMaterial1.isSelected()) {
+                    if (rbMaterial6.getText().equals("Motor de carga") || rbMaterial6.getText().equals("Llantas Unicas de trabajo") || rbMaterial6.getText().equals("Carroceria especial")) {
+                        valido = true;
+                    } else {
+                        errorMaterial6.setText("Error material no coincide con el auto");
+                        valido = false;
+                    }
+                }
+                
         }
-        
-    } 
-    
+        return valido;
+    }
+
     public int insertar(int x, int y) {
         if (x == y) {
             return x;
@@ -165,12 +281,15 @@ public class Ordenes extends javax.swing.JFrame {
                 rbMaterial3.setText(laLista.toString());
             }
             if (x == 4) {
+                rbMaterial4.setEnabled(true);
                 rbMaterial4.setText(laLista.toString());
             }
             if (x == 5) {
+                rbMaterial5.setEnabled(true);
                 rbMaterial5.setText(laLista.toString());
             }
             if (x == 6) {
+                rbMaterial6.setEnabled(true);
                 rbMaterial6.setText(laLista.toString());
             }
         }
@@ -178,7 +297,12 @@ public class Ordenes extends javax.swing.JFrame {
         return insertar(x - 1, 0);
 
     }
-
+    /*hay que enviar un id para identificar que hay que eliminar porque pueden 
+    haber varios nombres iguales */
+    public void eliminarMaterial(String pMaterial) {
+        ListaMateriales laListaM = new ListaMateriales();
+        //laListaM.eliminar(pMaterial);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,6 +321,7 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial1 = new javax.swing.JLabel();
         txtMaterial2 = new javax.swing.JLabel();
         txtMaterial3 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         rbMaterial1 = new javax.swing.JRadioButton();
         rbMaterial2 = new javax.swing.JRadioButton();
         rbMaterial3 = new javax.swing.JRadioButton();
@@ -210,6 +335,12 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        errorMaterial1 = new javax.swing.JLabel();
+        errorMaterial2 = new javax.swing.JLabel();
+        errorMaterial3 = new javax.swing.JLabel();
+        errorMaterial4 = new javax.swing.JLabel();
+        errorMaterial5 = new javax.swing.JLabel();
+        errorMaterial6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -239,12 +370,21 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMaterial3.setToolTipText("");
 
+        jButton3.setText("Imprimir Lista");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(40, 40, 40)
                 .addComponent(jButton2)
                 .addGap(59, 59, 59))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -272,7 +412,9 @@ public class Ordenes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addGap(25, 25, 25))
         );
 
@@ -339,25 +481,34 @@ public class Ordenes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addComponent(jButton1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnSelectMaterial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rbMaterial1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(errorMaterial1)
+                            .addComponent(errorMaterial2)
+                            .addComponent(errorMaterial3)
+                            .addComponent(errorMaterial4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(errorMaterial5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(errorMaterial6, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnSelectMaterial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbMaterial1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))))
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -370,17 +521,34 @@ public class Ordenes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(rbMaterial1)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbMaterial2)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbMaterial3)
-                        .addGap(16, 16, 16)
-                        .addComponent(rbMaterial4)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbMaterial5)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbMaterial6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                    .addComponent(rbMaterial1)
+                                                                    .addComponent(errorMaterial1))
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(rbMaterial2))
+                                                            .addComponent(errorMaterial2))
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(rbMaterial3))
+                                                    .addComponent(errorMaterial3))
+                                                .addGap(16, 16, 16)
+                                                .addComponent(rbMaterial4))
+                                            .addComponent(errorMaterial4))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbMaterial5))
+                                    .addComponent(errorMaterial5))
+                                .addGap(18, 18, 18)
+                                .addComponent(rbMaterial6))
+                            .addComponent(errorMaterial6))
                         .addGap(29, 29, 29)
                         .addComponent(btnSelectMaterial)
                         .addGap(17, 17, 17)
@@ -414,63 +582,65 @@ public class Ordenes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSelectMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectMaterialActionPerformed
-        if (rbMaterial1.isSelected()) {
-            if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial1.getText());
-            } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial1.getText());
-            } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial1.getText());
+        if (ValidarOrdenMateriales() == true) {
+            String material="";
+            if (rbMaterial1.isSelected()) {
+                if (txtMaterial1.getText().isEmpty()) {
+                    txtMaterial1.setText(rbMaterial1.getText());
+                } else if (txtMaterial2.getText().isEmpty()) {
+                    txtMaterial2.setText(rbMaterial1.getText());
+                } else if (txtMaterial3.getText().isEmpty()) {
+                    txtMaterial3.setText(rbMaterial1.getText());
+                }
+                material = rbMaterial1.getText();
+            } else if (rbMaterial2.isSelected()) {
+                if (txtMaterial1.getText().isEmpty()) {
+                    txtMaterial1.setText(rbMaterial2.getText());
+                } else if (txtMaterial2.getText().isEmpty()) {
+                    txtMaterial2.setText(rbMaterial2.getText());
+                } else if (txtMaterial3.getText().isEmpty()) {
+                    txtMaterial3.setText(rbMaterial2.getText());
+                }
+                material = rbMaterial2.getText();
+            } else if (rbMaterial3.isSelected()) {
+                if (txtMaterial1.getText().isEmpty()) {
+                    txtMaterial1.setText(rbMaterial3.getText());
+                } else if (txtMaterial2.getText().isEmpty()) {
+                    txtMaterial2.setText(rbMaterial3.getText());
+                } else if (txtMaterial3.getText().isEmpty()) {
+                    txtMaterial3.setText(rbMaterial3.getText());
+                }
+                material = rbMaterial3.getText();
+            } else if (rbMaterial4.isSelected()) {
+                if (txtMaterial1.getText().isEmpty()) {
+                    txtMaterial1.setText(rbMaterial4.getText());
+                } else if (txtMaterial2.getText().isEmpty()) {
+                    txtMaterial2.setText(rbMaterial4.getText());
+                } else if (txtMaterial3.getText().isEmpty()) {
+                    txtMaterial3.setText(rbMaterial4.getText());
+                }
+                material = rbMaterial4.getText();
+            } else if (rbMaterial5.isSelected()) {
+                if (txtMaterial1.getText().isEmpty()) {
+                    txtMaterial1.setText(rbMaterial5.getText());
+                } else if (txtMaterial2.getText().isEmpty()) {
+                    txtMaterial2.setText(rbMaterial5.getText());
+                } else if (txtMaterial3.getText().isEmpty()) {
+                    txtMaterial3.setText(rbMaterial5.getText());
+                }
+                material = rbMaterial5.getText();
+            } else if (rbMaterial6.isSelected()) {
+                if (txtMaterial1.getText().isEmpty()) {
+                    txtMaterial1.setText(rbMaterial6.getText());
+                } else if (txtMaterial2.getText().isEmpty()) {
+                    txtMaterial2.setText(rbMaterial6.getText());
+                } else if (txtMaterial3.getText().isEmpty()) {
+                    txtMaterial3.setText(rbMaterial6.getText());
+                }
+                material = rbMaterial6.getText();
             }
-        } else if (rbMaterial2.isSelected()) {
-            if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial2.getText());
-            } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial2.getText());
-            } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial2.getText());
-            }
-        } else if (rbMaterial3.isSelected()) {
-            if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial3.getText());
-            } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial3.getText());
-            } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial3.getText());
-            }
-        } else if (rbMaterial4.isSelected()) {
-            if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial4.getText());
-            } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial4.getText());
-            } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial4.getText());
-            }
-        } else if (rbMaterial5.isSelected()) {
-            if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial5.getText());
-            } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial5.getText());
-            } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial5.getText());
-            }
-        } else if (rbMaterial5.isSelected()) {
-            if (txtMaterial1.getText().isEmpty()) {
-                txtMaterial1.setText(rbMaterial6.getText());
-            } else if (txtMaterial2.getText().isEmpty()) {
-                txtMaterial2.setText(rbMaterial6.getText());
-            } else if (txtMaterial3.getText().isEmpty()) {
-                txtMaterial3.setText(rbMaterial6.getText());
-            }
+            eliminarMaterial(material);
         }
-
-        /*if ....(txtMaterial1.getText().isEmpty()) {
-            txtMaterial1.setText(rbMaterial1);
-        } else if (txtMaterial2.getText().isEmpty()){
-            
-        } else if (txtMaterial3.getText().isEmpty()){
-            
-        }*/
     }//GEN-LAST:event_btnSelectMaterialActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -489,6 +659,11 @@ public class Ordenes extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ImprimirColaString();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -529,8 +704,15 @@ public class Ordenes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSelectMaterial;
+    private javax.swing.JLabel errorMaterial1;
+    private javax.swing.JLabel errorMaterial2;
+    private javax.swing.JLabel errorMaterial3;
+    private javax.swing.JLabel errorMaterial4;
+    private javax.swing.JLabel errorMaterial5;
+    private javax.swing.JLabel errorMaterial6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
