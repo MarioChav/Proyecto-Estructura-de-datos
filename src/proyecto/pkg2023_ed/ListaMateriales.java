@@ -10,6 +10,10 @@ public class ListaMateriales {
     private NodoMateriales cabeza;
     private NodoMateriales ultimo;
 
+    public boolean estaVacia() {
+        return cabeza == null;
+    }
+    
     //metodo para ingresar personas a la lista
     public void inserta(String p) {
         if (cabeza == null) {//si esta vacia
@@ -32,7 +36,28 @@ public class ListaMateriales {
         }
     }
     
-    
+    //eliminar material de la cinta
+    /*public void eliminar(int dato) {
+        if (!estaVacia()) {
+            Nodo actual = inicio;
+            Nodo anterior = inicio.anterior;
+            while (actual != anterior) {
+                if (actual.dato == dato) {
+                    if (actual == inicio) {
+                        inicio = inicio.siguiente;
+                    }
+                    actual.siguiente.anterior = actual.anterior;
+                    actual.anterior.siguiente = actual.siguiente;
+                    return;
+                }
+                actual = actual.siguiente;
+            }
+            if (actual.dato == dato) {
+                actual.siguiente.anterior = actual.anterior;
+                actual.anterior.siguiente = actual.siguiente;
+            }
+        }
+    }*/
 
     //to String
     @Override
