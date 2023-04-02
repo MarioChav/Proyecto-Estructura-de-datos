@@ -31,7 +31,7 @@ public class Ordenes extends javax.swing.JFrame {
     ColaAutos laCola = new ColaAutos();
 
     public Ordenes() {
-
+//
         //Formato de pagina
         initComponents();
         setTitle("Car-Factory/Ordenes");
