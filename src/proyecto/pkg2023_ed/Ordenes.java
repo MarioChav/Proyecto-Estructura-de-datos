@@ -19,8 +19,20 @@ public class Ordenes extends javax.swing.JFrame {
     private int menuPrincipal;
     private static int segundosTranscurridos = 0;
     private static Timer timer;
+    private String Maquinaria_pesada="Maquinaria pesada";
+    private String Super_auto="Super auto";
+    private String Carro_carga="Carro carga";
+    
     //Aqui van las costantes para los carros y materiales
     ListaMateriales laLista = new ListaMateriales();
+    private String Motor_carga="Motor de carga";
+    private String Carroceria="Carroceria";
+    private String Motor_deportivo="Motor especial deportivo";
+    private String Carroceria_especial="Carroceria especial";
+    private String Llantas_trabajo="Llantas unicas de trabajo";
+    
+            
+    
 
 
     /**
@@ -66,13 +78,13 @@ public class Ordenes extends javax.swing.JFrame {
                 //ColaAutos laCola = new ColaAutos();
                 switch (randomInt) {
                     case 1:
-                        laCola.encola(new NodoC("Maquinaria Pesada"));
+                        laCola.encola(new NodoC(Maquinaria_pesada));
                         break;
                     case 2:
-                        laCola.encola(new NodoC("Super Auto"));
+                        laCola.encola(new NodoC(Super_auto));
                         break;
                     default:
-                        laCola.encola(new NodoC("Carro Carga"));
+                        laCola.encola(new NodoC(Carro_carga));
                         break;
                 }
                 System.out.flush();
@@ -110,7 +122,7 @@ public class Ordenes extends javax.swing.JFrame {
         switch (laCola.frente.getDato()) {
             case "Carro Carga":
                 if (rbMaterial1.isSelected()) {
-                    if (rbMaterial1.getText().equals("Motor de carga") || rbMaterial1.getText().equals("Carroceria")) {
+                    if (rbMaterial1.getText().equals(Motor_carga) || rbMaterial1.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial1.setText("Error material no coincide con el auto");
@@ -118,7 +130,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial2.isSelected()) {
-                    if (rbMaterial2.getText().equals("Motor de carga") || rbMaterial2.getText().equals("Carroceria")) {
+                    if (rbMaterial2.getText().equals(Motor_carga) || rbMaterial2.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial2.setText("Error material no coincide con el auto");
@@ -126,7 +138,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial3.isSelected()) {
-                    if (rbMaterial3.getText().equals("Motor de carga") || rbMaterial3.getText().equals("Carroceria")) {
+                    if (rbMaterial3.getText().equals(Motor_carga) || rbMaterial3.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial3.setText("Error material no coincide con el auto");
@@ -134,7 +146,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial4.isSelected()) {
-                    if (rbMaterial4.getText().equals("Motor de carga") || rbMaterial4.getText().equals("Carroceria")) {
+                    if (rbMaterial4.getText().equals(Motor_carga) || rbMaterial4.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial4.setText("Error material no coincide con el auto");
@@ -142,7 +154,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial5.isSelected()) {
-                    if (rbMaterial5.getText().equals("Motor de carga") || rbMaterial5.getText().equals("Carroceria")) {
+                    if (rbMaterial5.getText().equals(Motor_carga) || rbMaterial5.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial5.setText("Error material no coincide con el auto");
@@ -150,7 +162,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial6.isSelected()) {
-                    if (rbMaterial6.getText().equals("Motor de carga") || rbMaterial6.getText().equals("Carroceria")) {
+                    if (rbMaterial6.getText().equals(Motor_carga) || rbMaterial6.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial6.setText("Error material no coincide con el auto");
@@ -160,7 +172,7 @@ public class Ordenes extends javax.swing.JFrame {
                 break;
             case "Super Auto":
                 if (rbMaterial1.isSelected()) {
-                    if (rbMaterial1.getText().equals("Motor especial deportivo") || rbMaterial1.getText().equals("Carroceria")) {
+                    if (rbMaterial1.getText().equals(Motor_deportivo) || rbMaterial1.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial1.setText("Error material no coincide con el auto");
@@ -168,7 +180,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial2.isSelected()) {
-                    if (rbMaterial2.getText().equals("Motor especial deportivo") || rbMaterial2.getText().equals("Carroceria")) {
+                    if (rbMaterial2.getText().equals(Motor_deportivo) || rbMaterial2.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial2.setText("Error material no coincide con el auto");
@@ -176,7 +188,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial3.isSelected()) {
-                    if (rbMaterial3.getText().equals("Motor especial deportivo") || rbMaterial3.getText().equals("Carroceria")) {
+                    if (rbMaterial3.getText().equals(Motor_deportivo) || rbMaterial3.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial3.setText("Error material no coincide con el auto");
@@ -184,7 +196,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial4.isSelected()) {
-                    if (rbMaterial4.getText().equals("Motor especial deportivo") || rbMaterial4.getText().equals("Carroceria")) {
+                    if (rbMaterial4.getText().equals(Motor_deportivo) || rbMaterial4.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial4.setText("Error material no coincide con el auto");
@@ -192,7 +204,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial5.isSelected()) {
-                    if (rbMaterial5.getText().equals("Motor especial deportivo") || rbMaterial5.getText().equals("Carroceria")) {
+                    if (rbMaterial5.getText().equals(Motor_deportivo) || rbMaterial5.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial5.setText("Error material no coincide con el auto");
@@ -200,7 +212,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial6.isSelected()) {
-                    if (rbMaterial6.getText().equals("Motor especial deportivo") || rbMaterial6.getText().equals("Carroceria")) {
+                    if (rbMaterial6.getText().equals(Motor_deportivo) || rbMaterial6.getText().equals(Carroceria)) {
                         valido = true;
                     } else {
                         errorMaterial6.setText("Error material no coincide con el auto");
@@ -210,7 +222,7 @@ public class Ordenes extends javax.swing.JFrame {
                 break;
             case "Maquinaria Pesada":
                 if (rbMaterial1.isSelected()) {
-                    if (rbMaterial1.getText().equals("Motor de carga") || rbMaterial1.getText().equals("Llantas Unicas de trabajo") || rbMaterial1.getText().equals("Carroceria especial")) {
+                    if (rbMaterial1.getText().equals(Motor_carga) || rbMaterial1.getText().equals(Llantas_trabajo) || rbMaterial1.getText().equals(Carroceria_especial)) {
                         valido = true;
                     } else {
                         errorMaterial1.setText("Error material no coincide con el auto");
@@ -218,7 +230,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial2.isSelected()) {
-                    if (rbMaterial2.getText().equals("Motor de carga") || rbMaterial2.getText().equals("Llantas Unicas de trabajo") || rbMaterial2.getText().equals("Carroceria especial")) {
+                    if (rbMaterial2.getText().equals(Motor_carga) || rbMaterial2.getText().equals(Llantas_trabajo) || rbMaterial2.getText().equals(Carroceria_especial)) {
                         valido = true;
                     } else {
                         errorMaterial2.setText("Error material no coincide con el auto");
@@ -226,7 +238,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial3.isSelected()) {
-                    if (rbMaterial3.getText().equals("Motor de carga") || rbMaterial3.getText().equals("Llantas Unicas de trabajo") || rbMaterial3.getText().equals("Carroceria especial")) {
+                    if (rbMaterial3.getText().equals(Motor_carga) || rbMaterial3.getText().equals(Llantas_trabajo) || rbMaterial3.getText().equals(Carroceria_especial)) {
                         valido = true;
                     } else {
                         errorMaterial3.setText("Error material no coincide con el auto");
@@ -234,7 +246,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial4.isSelected()) {
-                    if (rbMaterial4.getText().equals("Motor de carga") || rbMaterial4.getText().equals("Llantas Unicas de trabajo") || rbMaterial4.getText().equals("Carroceria especial")) {
+                    if (rbMaterial4.getText().equals(Motor_carga) || rbMaterial4.getText().equals(Llantas_trabajo) || rbMaterial4.getText().equals(Carroceria_especial)) {
                         valido = true;
                     } else {
                         errorMaterial4.setText("Error material no coincide con el auto");
@@ -242,7 +254,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial5.isSelected()) {
-                    if (rbMaterial5.getText().equals("Motor de carga") || rbMaterial5.getText().equals("Llantas Unicas de trabajo") || rbMaterial5.getText().equals("Carroceria especial")) {
+                    if (rbMaterial5.getText().equals(Motor_carga) || rbMaterial5.getText().equals(Llantas_trabajo) || rbMaterial5.getText().equals(Carroceria_especial)) {
                         valido = true;
                     } else {
                         errorMaterial5.setText("Error material no coincide con el auto");
@@ -250,7 +262,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 if (rbMaterial1.isSelected()) {
-                    if (rbMaterial6.getText().equals("Motor de carga") || rbMaterial6.getText().equals("Llantas Unicas de trabajo") || rbMaterial6.getText().equals("Carroceria especial")) {
+                    if (rbMaterial6.getText().equals(Motor_carga) || rbMaterial6.getText().equals(Llantas_trabajo) || rbMaterial6.getText().equals(Carroceria_especial)) {
                         valido = true;
                     } else {
                         errorMaterial6.setText("Error material no coincide con el auto");
@@ -273,15 +285,15 @@ public class Ordenes extends javax.swing.JFrame {
             int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
 
             if (randomIn == 1) {
-                laLista.inserta("Motor especial deportivo", 1);
+                laLista.inserta(Motor_deportivo, 1);
             } else if (randomIn == 2) {
-                laLista.inserta("Motor de carga", 2);
+                laLista.inserta(Motor_carga, 2);
             } else if (randomIn == 3) {
-                laLista.inserta("Carroceria", 3);
+                laLista.inserta(Carroceria, 3);
             } else if (randomIn == 4) {
-                laLista.inserta("Carroceria especial", 4);
+                laLista.inserta(Carroceria_especial, 4);
             } else if (randomIn == 5) {
-                laLista.inserta("Llantas Unicas de trabajo", 5);
+                laLista.inserta(Llantas_trabajo, 5);
             }
             /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
             que elimiar un material de la lista*/
