@@ -6,9 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-/*import java.util.Timer;
-import java.util.TimerTask;
- */
 /**
  *
  * @author Joel Lopez
@@ -18,32 +15,29 @@ public class Ordenes extends javax.swing.JFrame {
     private int salir;
     private int menuPrincipal;
     private static int segundosTranscurridos = 0;
-    private static Timer timer;
-    private String Maquinaria_pesada="Maquinaria pesada";
-    private String Super_auto="Super auto";
-    private String Carro_carga="Carro carga";
     
     //Aqui van las costantes para los carros y materiales
+    private String Maquinaria_pesada = "Maquinaria Pesada";
+    private String Super_auto = "Super Auto";
+    private String Carro_carga = "Carro Carga";
+    private final String Motor_carga = "Motor de carga";
+    private final String Carroceria = "Carroceria";
+    private final String Motor_deportivo = "Motor especial deportivo";
+    private final String Carroceria_especial = "Carroceria especial";
+    private final String Llantas_trabajo = "Llantas unicas de trabajo";
+    
     ListaMateriales laLista = new ListaMateriales();
-    private String Motor_carga="Motor de carga";
-    private String Carroceria="Carroceria";
-    private String Motor_deportivo="Motor especial deportivo";
-    private String Carroceria_especial="Carroceria especial";
-    private String Llantas_trabajo="Llantas unicas de trabajo";
-    
-            
-    
-
 
     /**
      * Creates new form Ordenes
      */
+    private static Timer timer;
     public Timer newOrderTime, newMaterial;
     public Timer endGame;
     ColaAutos laCola = new ColaAutos();
 
     public Ordenes() {
-//
+
         //Formato de pagina
         initComponents();
         setTitle("Car-Factory/Ordenes");
@@ -57,16 +51,10 @@ public class Ordenes extends javax.swing.JFrame {
         insertar(cantidadMateriales, 0);
         agregarDatos(cantidadMateriales, 0);
 
-
-        newOrderTime = new Timer(1000, null);
-
         NodoMateriales aux;
         aux = laLista.getCabeza();
 
-        //System.out.println(laLista.ImprimirUno(3, aux));
-
         newOrderTime = new Timer(15000, null);
-
         newOrderTime.start();
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -107,7 +95,6 @@ public class Ordenes extends javax.swing.JFrame {
         grupoBotones.add(rbMaterial6);
 
     }
-
 
     private void ImprimirColaString() {
 
@@ -269,11 +256,10 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = false;
                     }
                 }
-                
+
         }
         return valido;
     }
-
 
     public int insertar(int x, int y) {
         if (x == y) {
@@ -295,9 +281,9 @@ public class Ordenes extends javax.swing.JFrame {
             } else if (randomIn == 5) {
                 laLista.inserta(Llantas_trabajo, 5);
             }
+
             /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
             que elimiar un material de la lista*/
-
             if (x == 1) {
                 rbMaterial1.setText(laLista.toString());
             }
@@ -308,31 +294,24 @@ public class Ordenes extends javax.swing.JFrame {
                 rbMaterial3.setText(laLista.toString());
             }
             if (x == 4) {
-                rbMaterial4.setEnabled(true);
                 rbMaterial4.setText(laLista.toString());
             }
             if (x == 5) {
-                rbMaterial5.setEnabled(true);
                 rbMaterial5.setText(laLista.toString());
             }
             if (x == 6) {
-                rbMaterial6.setEnabled(true);
                 rbMaterial6.setText(laLista.toString());
             }
-
         }
 
         return insertar(x - 1, 0);
 
     }
 
-    /*hay que enviar un id para identificar que hay que eliminar porque pueden 
-    haber varios nombres iguales */
     public void eliminarMaterial(String pMaterial) {
         ListaMateriales laListaM = new ListaMateriales();
         //laListaM.eliminar(pMaterial);
     }
-
 
     public int agregarDatos(int x, int y) {
         if (x == y) {
@@ -363,7 +342,6 @@ public class Ordenes extends javax.swing.JFrame {
 
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -382,7 +360,6 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial1 = new javax.swing.JLabel();
         txtMaterial2 = new javax.swing.JLabel();
         txtMaterial3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         rbMaterial1 = new javax.swing.JRadioButton();
         rbMaterial2 = new javax.swing.JRadioButton();
         rbMaterial3 = new javax.swing.JRadioButton();
@@ -396,9 +373,9 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        errorMaterial1 = new javax.swing.JLabel();
-        errorMaterial2 = new javax.swing.JLabel();
         errorMaterial3 = new javax.swing.JLabel();
+        errorMaterial2 = new javax.swing.JLabel();
+        errorMaterial1 = new javax.swing.JLabel();
         errorMaterial4 = new javax.swing.JLabel();
         errorMaterial5 = new javax.swing.JLabel();
         errorMaterial6 = new javax.swing.JLabel();
@@ -431,21 +408,12 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMaterial3.setToolTipText("");
 
-        jButton3.setText("Imprimir Lista");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(40, 40, 40)
                 .addComponent(jButton2)
                 .addGap(59, 59, 59))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -473,9 +441,7 @@ public class Ordenes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(jButton2)
                 .addGap(25, 25, 25))
         );
 
@@ -486,11 +452,6 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel2.setText("la cinta transportadora");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         btnSelectMaterial.setText("Seleccionar");
         btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
@@ -547,24 +508,23 @@ public class Ordenes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(errorMaterial1)
-                            .addComponent(errorMaterial2)
                             .addComponent(errorMaterial3)
-                            .addComponent(errorMaterial4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(errorMaterial5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(errorMaterial6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(40, 40, 40)
+                            .addComponent(errorMaterial2)
+                            .addComponent(errorMaterial1)
+                            .addComponent(errorMaterial4)
+                            .addComponent(errorMaterial5)
+                            .addComponent(errorMaterial6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jButton1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -579,9 +539,6 @@ public class Ordenes extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))))
                 .addGap(23, 23, 23))
-                            .addComponent(jLabel5)))
-                    //.addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                //.addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -599,27 +556,26 @@ public class Ordenes extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                    .addComponent(rbMaterial1)
-                                                                    .addComponent(errorMaterial1))
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(rbMaterial2))
-                                                            .addComponent(errorMaterial2))
+                                                        .addComponent(rbMaterial1)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(rbMaterial3))
-                                                    .addComponent(errorMaterial3))
-                                                .addGap(16, 16, 16)
-                                                .addComponent(rbMaterial4))
-                                            .addComponent(errorMaterial4))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rbMaterial5))
-                                    .addComponent(errorMaterial5))
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(rbMaterial2)
+                                                            .addComponent(errorMaterial2)))
+                                                    .addComponent(errorMaterial1))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rbMaterial3))
+                                            .addComponent(errorMaterial3))
+                                        .addGap(16, 16, 16)
+                                        .addComponent(rbMaterial4))
+                                    .addComponent(errorMaterial4))
                                 .addGap(18, 18, 18)
-                                .addComponent(rbMaterial6))
+                                .addComponent(rbMaterial5))
+                            .addComponent(errorMaterial5))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMaterial6)
                             .addComponent(errorMaterial6))
                         .addGap(29, 29, 29)
                         .addComponent(btnSelectMaterial)
@@ -655,7 +611,7 @@ public class Ordenes extends javax.swing.JFrame {
 
     private void btnSelectMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectMaterialActionPerformed
         if (ValidarOrdenMateriales() == true) {
-            String material="";
+            String material = "";
             if (rbMaterial1.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
                     txtMaterial1.setText(rbMaterial1.getText());
@@ -732,17 +688,6 @@ public class Ordenes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        ImprimirColaString();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-
     /**
      * @param args the command line arguments
      */
@@ -790,7 +735,6 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel errorMaterial6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
