@@ -844,15 +844,15 @@ public class Ordenes extends javax.swing.JFrame {
             //agrega
             rbMaterial3.setText(aux.getNext().getNext().getDato());
         } else if (rbMaterial4.isSelected()) {
-            laLista.elminarMaterial(rbMaterial4.getText(), aux.getNext().getId());
+            laLista.elminarMaterial(rbMaterial4.getText(), aux.getNext().getNext().getNext().getId());
             insertar(1, 0);
             rbMaterial4.setText(aux.getNext().getNext().getNext().getDato());
         } else if (rbMaterial5.isSelected()) {
-            laLista.elminarMaterial(rbMaterial5.getText(), aux.getNext().getId());
+            laLista.elminarMaterial(rbMaterial5.getText(), aux.getNext().getNext().getNext().getNext().getId());
             insertar(1, 0);
             rbMaterial5.setText(aux.getNext().getNext().getNext().getNext().getDato());
         } else if (rbMaterial6.isSelected()) {
-            laLista.elminarMaterial(rbMaterial6.getText(), aux.getNext().getId());
+            laLista.elminarMaterial(rbMaterial6.getText(), aux.getNext().getNext().getNext().getNext().getNext().getId());
             insertar(1, 0);
             rbMaterial6.setText(aux.getNext().getNext().getNext().getNext().getNext().getDato());
         }
