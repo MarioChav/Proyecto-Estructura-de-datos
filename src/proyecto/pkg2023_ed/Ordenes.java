@@ -17,41 +17,30 @@ public class Ordenes extends javax.swing.JFrame {
     private int menuPrincipal;
     private static int segundosTranscurridos = 0;
     private int saldoDisponible = 15000;
-    
-    
-    
-    
-    
+
     //Aqui van las costantes para los carros y materiales
     private String Maquinaria_pesada = "Maquinaria Pesada";
     private String Super_auto = "Super Auto";
     private String Carro_carga = "Carro Carga";
+
     private final String Motor_carga = "Motor de carga";
     private final String Carroceria = "Carroceria";
     private final String Motor_deportivo = "Motor especial deportivo";
     private final String Carroceria_especial = "Carroceria especial";
     private final String Llantas_trabajo = "Llantas unicas de trabajo";
-    
+
     ListaMateriales laLista = new ListaMateriales();
 
     /**
      * Creates new form Ordenes
      */
-    
     //Saldo
-    
-    
-    
-    
-    
     private static Timer timer;
     public Timer newOrderTime, newMaterial;
     public Timer endGame;
     ColaAutos laCola = new ColaAutos();
 
     public Ordenes() {
-        
-
         //Formato de pagina
         initComponents();
         setTitle("Car-Factory/Ordenes");
@@ -108,14 +97,12 @@ public class Ordenes extends javax.swing.JFrame {
         grupoBotones.add(rbMaterial4);
         grupoBotones.add(rbMaterial5);
         grupoBotones.add(rbMaterial6);
-        
 
     }
-    
-    public void saldoActual(){
+
+    public void saldoActual() {
         Saldo.setText("$" + saldoDisponible);
     }
-    
 
     private void ImprimirColaString() {
 
@@ -127,7 +114,7 @@ public class Ordenes extends javax.swing.JFrame {
 
     private boolean ValidarOrdenMateriales() {
         boolean valido = false;
-        
+
         switch (laCola.frente.getDato()) {
             case "Carro Carga":
                 if (rbMaterial1.isSelected()) {
@@ -342,8 +329,9 @@ public class Ordenes extends javax.swing.JFrame {
 
             /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
             que elimiar un material de la lista*/
-            if (x == 1) {
+          /*  if (x == 1) {
                 rbMaterial1.setText(laLista.toString());
+
             }
             if (x == 2) {
                 rbMaterial2.setText(laLista.toString());
@@ -359,16 +347,17 @@ public class Ordenes extends javax.swing.JFrame {
             }
             if (x == 6) {
                 rbMaterial6.setText(laLista.toString());
-            }
+            }*/
         }
 
         return insertar(x - 1, 0);
 
     }
 
-    public void eliminarMaterial(String pMaterial) {
-        ListaMateriales laListaM = new ListaMateriales();
-        //laListaM.eliminar(pMaterial);
+    public void eliminarMaterial() {
+        //ListaMateriales laListaM = new ListaMateriales();
+        //laLista.eliminar(pMaterial);
+
     }
 
     public int agregarDatos(int x, int y) {
@@ -410,7 +399,6 @@ public class Ordenes extends javax.swing.JFrame {
     private void initComponents() {
 
         SecConstruccion = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtAuto = new javax.swing.JLabel();
         txtMaterial1 = new javax.swing.JLabel();
@@ -436,7 +424,7 @@ public class Ordenes extends javax.swing.JFrame {
         Basurero = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        btnEliminar = new javax.swing.JButton();
         ProximaOrden = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
@@ -450,13 +438,7 @@ public class Ordenes extends javax.swing.JFrame {
 
         SecConstruccion.setBackground(new java.awt.Color(82, 163, 111));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Terminar");
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contruccion de Auto Emblema Actual:");
 
         txtMaterial1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -482,10 +464,6 @@ public class Ordenes extends javax.swing.JFrame {
                         .addComponent(txtMaterial2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(195, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(20, 20, 20))
         );
         SecConstruccionLayout.setVerticalGroup(
             SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,9 +478,7 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(21, 21, 21))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         getContentPane().add(SecConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 490, 380));
@@ -510,11 +486,9 @@ public class Ordenes extends javax.swing.JFrame {
         SecOrdenes.setBackground(new java.awt.Color(255, 153, 51));
 
         TituloOrdenes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloOrdenes.setForeground(new java.awt.Color(0, 0, 0));
         TituloOrdenes.setText("Orden entrante:");
 
         Ordenes.setBackground(new java.awt.Color(0, 0, 0));
-        Ordenes.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout SecOrdenesLayout = new javax.swing.GroupLayout(SecOrdenes);
         SecOrdenes.setLayout(SecOrdenesLayout);
@@ -543,11 +517,9 @@ public class Ordenes extends javax.swing.JFrame {
 
         TituloSaldo.setBackground(new java.awt.Color(255, 0, 0));
         TituloSaldo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloSaldo.setForeground(new java.awt.Color(0, 0, 0));
         TituloSaldo.setText("Saldo Actual:");
 
         Saldo.setBackground(new java.awt.Color(0, 0, 0));
-        Saldo.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout SecSaldoLayout = new javax.swing.GroupLayout(SecSaldo);
         SecSaldo.setLayout(SecSaldoLayout);
@@ -575,34 +547,29 @@ public class Ordenes extends javax.swing.JFrame {
         SecMateriales.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Espacios Disponibles en");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("la cinta transportadora");
 
         rbMaterial1.setBackground(new java.awt.Color(0, 153, 153));
-        rbMaterial1.setForeground(new java.awt.Color(0, 0, 0));
 
         rbMaterial2.setBackground(new java.awt.Color(0, 153, 153));
-        rbMaterial2.setForeground(new java.awt.Color(0, 0, 0));
 
         rbMaterial3.setBackground(new java.awt.Color(0, 153, 153));
-        rbMaterial3.setForeground(new java.awt.Color(0, 0, 0));
+        rbMaterial3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMaterial3ActionPerformed(evt);
+            }
+        });
 
         rbMaterial4.setBackground(new java.awt.Color(0, 153, 153));
-        rbMaterial4.setForeground(new java.awt.Color(0, 0, 0));
 
         rbMaterial5.setBackground(new java.awt.Color(0, 153, 153));
-        rbMaterial5.setForeground(new java.awt.Color(0, 0, 0));
 
         rbMaterial6.setBackground(new java.awt.Color(0, 153, 153));
-        rbMaterial6.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnSelectMaterial.setBackground(new java.awt.Color(255, 255, 255));
         btnSelectMaterial.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        btnSelectMaterial.setForeground(new java.awt.Color(0, 0, 0));
         btnSelectMaterial.setText("Seleccionar");
         btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -626,12 +593,16 @@ public class Ordenes extends javax.swing.JFrame {
                             .addComponent(rbMaterial2)
                             .addComponent(rbMaterial3)
                             .addComponent(rbMaterial4)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnSelectMaterial))))
+                            .addComponent(btnSelectMaterial))
+                        .addGap(22, 22, 22)))
                 .addGap(20, 20, 20))
+            .addGroup(SecMaterialesLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SecMaterialesLayout.setVerticalGroup(
             SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -662,24 +633,19 @@ public class Ordenes extends javax.swing.JFrame {
         SecBasurero.setBackground(new java.awt.Color(153, 0, 0));
 
         Basurero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Basurero.setForeground(new java.awt.Color(0, 0, 0));
         Basurero.setText("Basurero");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Seleccione la parte");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("del carro para eliminar");
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -693,15 +659,14 @@ public class Ordenes extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(Basurero))
                     .addGroup(SecBasureroLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6))
-                    .addGroup(SecBasureroLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jLabel5))
-                    .addGroup(SecBasureroLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(SecBasureroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addGroup(SecBasureroLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnEliminar)))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         SecBasureroLayout.setVerticalGroup(
             SecBasureroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,7 +678,7 @@ public class Ordenes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -721,7 +686,6 @@ public class Ordenes extends javax.swing.JFrame {
 
         ProximaOrden.setBackground(new java.awt.Color(255, 255, 0));
         ProximaOrden.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        ProximaOrden.setForeground(new java.awt.Color(0, 0, 0));
         ProximaOrden.setText("Proxima Orden");
         ProximaOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -832,7 +796,7 @@ public class Ordenes extends javax.swing.JFrame {
                 }
                 material = rbMaterial6.getText();
             }
-            eliminarMaterial(material);
+            //eliminarMaterial(material);
         }
     }//GEN-LAST:event_btnSelectMaterialActionPerformed
 
@@ -853,9 +817,27 @@ public class Ordenes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void rbMaterial3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMaterial3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_rbMaterial3ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+
+        if (rbMaterial1.isSelected()) {
+            
+        } else if (rbMaterial2.isSelected()) {
+            
+        } else if (rbMaterial3.isSelected()) {
+            
+        } else if (rbMaterial4.isSelected()) {
+           
+        } else if (rbMaterial5.isSelected()) {
+            
+        } else if (rbMaterial6.isSelected()) {
+            
+        }
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -908,9 +890,8 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JPanel SecSaldo;
     private javax.swing.JLabel TituloOrdenes;
     private javax.swing.JLabel TituloSaldo;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSelectMaterial;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
