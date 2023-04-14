@@ -30,7 +30,6 @@ public class Ordenes extends javax.swing.JFrame {
     private final String Llantas_trabajo = "Llantas unicas de trabajo";
 
     ListaMateriales laLista = new ListaMateriales();
-    
 
     /**
      * Creates new form Ordenes
@@ -741,7 +740,7 @@ public class Ordenes extends javax.swing.JFrame {
 
     private void ProximaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProximaOrdenActionPerformed
         // TODO add your handling code here:
-        
+
 
     }//GEN-LAST:event_ProximaOrdenActionPerformed
 
@@ -833,21 +832,30 @@ public class Ordenes extends javax.swing.JFrame {
         aux = laLista.getCabeza();
         if (rbMaterial1.isSelected()) {
             laLista.elminarMaterial(rbMaterial1.getText(), aux.getId());
-            rbMaterial1.setText("");
-            insertar(1,0);
-            agregarDatos(1,0);
+            insertar(1, 0);
+            agregarDatos(1, 0);
         } else if (rbMaterial2.isSelected()) {
             laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
+            insertar(1, 0);
+            agregarDatos(2, 0);
         } else if (rbMaterial3.isSelected()) {
-
+            laLista.elminarMaterial(rbMaterial3.getText(), aux.getNext().getNext().getId());
+            insertar(1, 0);
+            agregarDatos(3, 0);
         } else if (rbMaterial4.isSelected()) {
-
+            laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
+            insertar(1, 0);
+            agregarDatos(2, 0);
         } else if (rbMaterial5.isSelected()) {
-
+            laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
+            insertar(1, 0);
+            agregarDatos(2, 0);
         } else if (rbMaterial6.isSelected()) {
-
+            laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
+            insertar(1, 0);
+            agregarDatos(2, 0);
         }
-        
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
