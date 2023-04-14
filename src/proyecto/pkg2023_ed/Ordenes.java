@@ -30,6 +30,7 @@ public class Ordenes extends javax.swing.JFrame {
     private final String Llantas_trabajo = "Llantas unicas de trabajo";
 
     ListaMateriales laLista = new ListaMateriales();
+    
 
     /**
      * Creates new form Ordenes
@@ -329,7 +330,7 @@ public class Ordenes extends javax.swing.JFrame {
 
             /*Solo le muetra el texto donde esta el contador, se necesita agregar un ID para cuando tengamos 
             que elimiar un material de la lista*/
-          /*  if (x == 1) {
+ /*  if (x == 1) {
                 rbMaterial1.setText(laLista.toString());
 
             }
@@ -404,6 +405,7 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial1 = new javax.swing.JLabel();
         txtMaterial2 = new javax.swing.JLabel();
         txtMaterial3 = new javax.swing.JLabel();
+        ProximaOrden = new javax.swing.JButton();
         SecOrdenes = new javax.swing.JPanel();
         TituloOrdenes = new javax.swing.JLabel();
         Ordenes = new javax.swing.JLabel();
@@ -425,7 +427,6 @@ public class Ordenes extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
-        ProximaOrden = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -450,6 +451,15 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMaterial3.setToolTipText("");
 
+        ProximaOrden.setBackground(new java.awt.Color(255, 255, 0));
+        ProximaOrden.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        ProximaOrden.setText("Proxima Orden");
+        ProximaOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProximaOrdenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SecConstruccionLayout = new javax.swing.GroupLayout(SecConstruccion);
         SecConstruccion.setLayout(SecConstruccionLayout);
         SecConstruccionLayout.setHorizontalGroup(
@@ -457,13 +467,21 @@ public class Ordenes extends javax.swing.JFrame {
             .addGroup(SecConstruccionLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAuto)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtMaterial3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                        .addComponent(txtMaterial2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(195, Short.MAX_VALUE))
+                    .addGroup(SecConstruccionLayout.createSequentialGroup()
+                        .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAuto)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(195, Short.MAX_VALUE))
+                    .addGroup(SecConstruccionLayout.createSequentialGroup()
+                        .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtMaterial3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                            .addComponent(txtMaterial2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ProximaOrden)
+                .addGap(18, 18, 18))
         );
         SecConstruccionLayout.setVerticalGroup(
             SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +496,9 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addComponent(ProximaOrden)
+                .addGap(27, 27, 27))
         );
 
         getContentPane().add(SecConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 490, 380));
@@ -684,16 +704,6 @@ public class Ordenes extends javax.swing.JFrame {
 
         getContentPane().add(SecBasurero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 150, 120));
 
-        ProximaOrden.setBackground(new java.awt.Color(255, 255, 0));
-        ProximaOrden.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        ProximaOrden.setText("Proxima Orden");
-        ProximaOrden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProximaOrdenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ProximaOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
-
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 640));
 
@@ -731,10 +741,7 @@ public class Ordenes extends javax.swing.JFrame {
 
     private void ProximaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProximaOrdenActionPerformed
         // TODO add your handling code here:
-        Ingresar inicio = new Ingresar();
-        inicio.setTitle("Ingreso del juego");
-        inicio.setLocationRelativeTo(null);
-        inicio.setVisible(true);
+        
 
     }//GEN-LAST:event_ProximaOrdenActionPerformed
 
@@ -822,21 +829,25 @@ public class Ordenes extends javax.swing.JFrame {
     }//GEN-LAST:event_rbMaterial3ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        NodoMateriales aux;
+        aux = laLista.getCabeza();
         if (rbMaterial1.isSelected()) {
-            
+            laLista.elminarMaterial(rbMaterial1.getText(), aux.getId());
+            rbMaterial1.setText("");
+            insertar(1,0);
+            agregarDatos(1,0);
         } else if (rbMaterial2.isSelected()) {
-            
+            laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
         } else if (rbMaterial3.isSelected()) {
-            
-        } else if (rbMaterial4.isSelected()) {
-           
-        } else if (rbMaterial5.isSelected()) {
-            
-        } else if (rbMaterial6.isSelected()) {
-            
-        }
 
+        } else if (rbMaterial4.isSelected()) {
+
+        } else if (rbMaterial5.isSelected()) {
+
+        } else if (rbMaterial6.isSelected()) {
+
+        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**

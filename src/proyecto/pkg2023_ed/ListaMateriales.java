@@ -38,11 +38,11 @@ public class ListaMateriales {
     }
 
     //metodo para eliminar un material
-    public void elminarMaterial(int id) {
+    public void elminarMaterial(String nombre, int id) {
         if (cabeza != null) {
-            if (cabeza.getId() == id) {
+            if (cabeza.getDato()== nombre) {
                 NodoMateriales aux = cabeza.getNext();
-                //System.out.println(ultimo);
+                System.out.println("eliminado");
                 cabeza = aux;
                 ultimo.setNext(cabeza);
                 cabeza.setBack(ultimo);
@@ -51,7 +51,8 @@ public class ListaMateriales {
                 while (aux.getNext() != cabeza && aux.getNext().getId() < id) {
                     aux = aux.getNext();
                 }
-                if (aux.getNext() != cabeza && aux.getNext().getId() == id) {
+                if (aux.getNext() != cabeza && aux.getNext().getDato()== nombre) {
+                    System.out.println("eliminado");
                     aux.setNext(aux.getNext().getNext());
                     if (id == ultimo.getId()) {
                         ultimo = aux;

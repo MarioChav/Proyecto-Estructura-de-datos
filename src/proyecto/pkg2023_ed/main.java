@@ -14,20 +14,5 @@ public class main {
         inicio.setVisible(true);
     }
     
-    public static void insertar() {
-        ListaMateriales laLista = new ListaMateriales();
-        laLista.inserta("Motor especial deportivo", 1);
-        
-        laLista.inserta("Motor de carga", 2);
-        
-        laLista.inserta("Carroceria", 3);
-        
-        laLista.inserta("Carroceria especial", 4);
-        
-        laLista.inserta("Llantas Unicas de trabajo", 5);
-        
-        System.out.println(laLista.toString());
-        laLista.elminarMaterial(1);
-        System.out.println(laLista.toString());   
-    }
+   
 }
