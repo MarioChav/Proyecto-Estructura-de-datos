@@ -112,9 +112,9 @@ public class Ordenes extends javax.swing.JFrame {
 
     }
 
-     private boolean ValidarOrdenMateriales() {
+    private boolean ValidarOrdenMateriales() {
         boolean valido = false;
-        
+
         switch (laCola.frente.getDato()) {
             case "Carro Carga":
                 if (rbMaterial1.isSelected()) {
@@ -122,7 +122,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 4000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -133,7 +133,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 5000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -145,12 +145,12 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 6000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
-                        
+
                     }
                 }
                 if (rbMaterial4.isSelected()) {
@@ -158,7 +158,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 7000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -170,7 +170,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 8000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -182,7 +182,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 9000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -196,7 +196,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 4000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -208,7 +208,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 5000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -220,7 +220,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 6000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -232,7 +232,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 7000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -244,7 +244,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 8000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -256,7 +256,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 9000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -270,7 +270,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 4000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -282,7 +282,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 5000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -294,7 +294,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 6000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -306,7 +306,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 7000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -318,7 +318,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 8000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -330,7 +330,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 9000;
                         saldoActual();
-                        valido=validacion(valido);
+                        valido = validacion(valido);
 
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
@@ -341,69 +341,66 @@ public class Ordenes extends javax.swing.JFrame {
         }
         return valido;
     }
-    
-    public boolean validacion(boolean pValido){
-        if (rbMaterial2.isSelected()){
-            
-           if (txtMaterial1.getText().equals(rbMaterial2.getText())||txtMaterial2.equals(rbMaterial2.getText())) {
-               
-             pValido=false; 
-             
-            }else{
-               pValido=true;
-              
-           }
+
+    public boolean validacion(boolean pValido) {
+        if (rbMaterial2.isSelected()) {
+
+            if (txtMaterial1.getText().equals(rbMaterial2.getText()) || txtMaterial2.equals(rbMaterial2.getText())) {
+
+                pValido = false;
+
+            } else {
+                pValido = true;
+
+            }
         }
-        if (rbMaterial3.isSelected()){
-            
-           if (txtMaterial1.getText().equals(rbMaterial3.getText())||txtMaterial2.equals(rbMaterial3.getText())) {
-               
-             pValido=false; 
-             
-            }else{
-               pValido=true;
-              
-           }
+        if (rbMaterial3.isSelected()) {
+
+            if (txtMaterial1.getText().equals(rbMaterial3.getText()) || txtMaterial2.equals(rbMaterial3.getText())) {
+
+                pValido = false;
+
+            } else {
+                pValido = true;
+
+            }
         }
-        if (rbMaterial4.isSelected()){
-            
-           if (txtMaterial1.getText().equals(rbMaterial4.getText())||txtMaterial2.equals(rbMaterial4.getText())) {
-               
-             pValido=false; 
-             
-            }else{
-               pValido=true;
-              
-           }
+        if (rbMaterial4.isSelected()) {
+
+            if (txtMaterial1.getText().equals(rbMaterial4.getText()) || txtMaterial2.equals(rbMaterial4.getText())) {
+
+                pValido = false;
+
+            } else {
+                pValido = true;
+
+            }
         }
-        if (rbMaterial5.isSelected()){
-            
-           if (txtMaterial1.getText().equals(rbMaterial5.getText())||txtMaterial2.equals(rbMaterial5.getText())) {
-               
-             pValido=false; 
-             
-            }else{
-               pValido=true;
-              
-           }
+        if (rbMaterial5.isSelected()) {
+
+            if (txtMaterial1.getText().equals(rbMaterial5.getText()) || txtMaterial2.equals(rbMaterial5.getText())) {
+
+                pValido = false;
+
+            } else {
+                pValido = true;
+
+            }
         }
-        if (rbMaterial6.isSelected()){
-            
-           if (txtMaterial1.getText().equals(rbMaterial6.getText())||txtMaterial2.equals(rbMaterial6.getText())) {
-               
-             pValido=false; 
-             
-            }else{
-               pValido=true;
-              
-           }
+        if (rbMaterial6.isSelected()) {
+
+            if (txtMaterial1.getText().equals(rbMaterial6.getText()) || txtMaterial2.equals(rbMaterial6.getText())) {
+
+                pValido = false;
+
+            } else {
+                pValido = true;
+
+            }
         }
-        
-    
-    
+
         return pValido;
     }
-
 
     public int insertar(int x, int y) {
         if (x == y) {
@@ -504,6 +501,7 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial2 = new javax.swing.JLabel();
         txtMaterial3 = new javax.swing.JLabel();
         ProximaOrden = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         SecOrdenes = new javax.swing.JPanel();
         TituloOrdenes = new javax.swing.JLabel();
         Ordenes = new javax.swing.JLabel();
@@ -558,6 +556,13 @@ public class Ordenes extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SecConstruccionLayout = new javax.swing.GroupLayout(SecConstruccion);
         SecConstruccion.setLayout(SecConstruccionLayout);
         SecConstruccionLayout.setHorizontalGroup(
@@ -568,16 +573,18 @@ public class Ordenes extends javax.swing.JFrame {
                     .addGroup(SecConstruccionLayout.createSequentialGroup()
                         .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAuto)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(195, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtMaterial3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(SecConstruccionLayout.createSequentialGroup()
-                        .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtMaterial3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                            .addComponent(txtMaterial2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txtMaterial2, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                        .addGap(341, 341, 341))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ProximaOrden)
                 .addGap(18, 18, 18))
         );
@@ -594,8 +601,10 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(ProximaOrden)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ProximaOrden)
+                    .addComponent(jButton1))
                 .addGap(27, 27, 27))
         );
 
@@ -838,7 +847,10 @@ public class Ordenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProximaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProximaOrdenActionPerformed
-
+        txtMaterial1.setText("");
+        txtMaterial2.setText("");
+        txtMaterial3.setText("");
+        laCola.nextOrder();
 
     }//GEN-LAST:event_ProximaOrdenActionPerformed
 
@@ -854,6 +866,8 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial1.getText());
                 }
                 material = rbMaterial1.getText();
+                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
+                eliminarMateriales();
             } else if (rbMaterial2.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
                     txtMaterial1.setText(rbMaterial2.getText());
@@ -862,6 +876,8 @@ public class Ordenes extends javax.swing.JFrame {
                 } else if (txtMaterial3.getText().isEmpty()) {
                     txtMaterial3.setText(rbMaterial2.getText());
                 }
+                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
+                eliminarMateriales();
                 material = rbMaterial2.getText();
             } else if (rbMaterial3.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
@@ -872,6 +888,8 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial3.getText());
                 }
                 material = rbMaterial3.getText();
+                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
+                eliminarMateriales();
             } else if (rbMaterial4.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
                     txtMaterial1.setText(rbMaterial4.getText());
@@ -881,6 +899,8 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial4.getText());
                 }
                 material = rbMaterial4.getText();
+                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
+                eliminarMateriales();
             } else if (rbMaterial5.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
                     txtMaterial1.setText(rbMaterial5.getText());
@@ -890,6 +910,8 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial5.getText());
                 }
                 material = rbMaterial5.getText();
+                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
+                eliminarMateriales();
             } else if (rbMaterial6.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
                     txtMaterial1.setText(rbMaterial6.getText());
@@ -899,6 +921,8 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial6.getText());
                 }
                 material = rbMaterial6.getText();
+                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
+                eliminarMateriales();
             }
             //eliminarMaterial(material);
         }
@@ -926,6 +950,10 @@ public class Ordenes extends javax.swing.JFrame {
     }//GEN-LAST:event_rbMaterial3ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        eliminarMateriales();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void eliminarMateriales() {
         NodoMateriales aux;
         aux = laLista.getCabeza();
         if (rbMaterial1.isSelected()) {
@@ -954,8 +982,13 @@ public class Ordenes extends javax.swing.JFrame {
             insertar(1, 0);
             rbMaterial6.setText(aux.getNext().getNext().getNext().getNext().getNext().getDato());
         }
+    }
 
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println(laCola.toString());
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1010,6 +1043,7 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel TituloSaldo;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSelectMaterial;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
