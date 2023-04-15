@@ -112,9 +112,9 @@ public class Ordenes extends javax.swing.JFrame {
 
     }
 
-    private boolean ValidarOrdenMateriales() {
+     private boolean ValidarOrdenMateriales() {
         boolean valido = false;
-
+        
         switch (laCola.frente.getDato()) {
             case "Carro Carga":
                 if (rbMaterial1.isSelected()) {
@@ -122,6 +122,7 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 4000;
                         saldoActual();
+                        validacion(valido);
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -132,6 +133,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 5000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -142,9 +145,12 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 6000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        
                     }
                 }
                 if (rbMaterial4.isSelected()) {
@@ -152,6 +158,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 7000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -162,6 +170,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 8000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -172,6 +182,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 9000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -184,6 +196,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 4000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -194,6 +208,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 5000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -204,6 +220,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 6000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -214,6 +232,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 7000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -224,6 +244,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 8000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -234,6 +256,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 9000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -246,6 +270,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 4000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -256,6 +282,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 5000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -266,6 +294,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 6000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -276,6 +306,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 7000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -286,6 +318,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 8000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -296,6 +330,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         saldoDisponible -= 9000;
                         saldoActual();
+                        validacion(valido);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
@@ -305,6 +341,69 @@ public class Ordenes extends javax.swing.JFrame {
         }
         return valido;
     }
+    
+    public boolean validacion(boolean pValido){
+        if (rbMaterial2.isSelected()){
+            
+           if (txtMaterial1.getText().equals(rbMaterial2.getText())||txtMaterial2.equals(rbMaterial2.getText())) {
+               
+             pValido=false; 
+             
+            }else{
+               pValido=true;
+              
+           }
+        }
+        if (rbMaterial3.isSelected()){
+            
+           if (txtMaterial1.getText().equals(rbMaterial3.getText())||txtMaterial2.equals(rbMaterial3.getText())) {
+               
+             pValido=false; 
+             
+            }else{
+               pValido=true;
+              
+           }
+        }
+        if (rbMaterial4.isSelected()){
+            
+           if (txtMaterial1.getText().equals(rbMaterial4.getText())||txtMaterial2.equals(rbMaterial4.getText())) {
+               
+             pValido=false; 
+             
+            }else{
+               pValido=true;
+              
+           }
+        }
+        if (rbMaterial5.isSelected()){
+            
+           if (txtMaterial1.getText().equals(rbMaterial5.getText())||txtMaterial2.equals(rbMaterial5.getText())) {
+               
+             pValido=false; 
+             
+            }else{
+               pValido=true;
+              
+           }
+        }
+        if (rbMaterial6.isSelected()){
+            
+           if (txtMaterial1.getText().equals(rbMaterial6.getText())||txtMaterial2.equals(rbMaterial6.getText())) {
+               
+             pValido=false; 
+             
+            }else{
+               pValido=true;
+              
+           }
+        }
+        
+    
+    
+        return pValido;
+    }
+
 
     public int insertar(int x, int y) {
         if (x == y) {
