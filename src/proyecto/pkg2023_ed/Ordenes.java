@@ -87,6 +87,16 @@ public class Ordenes extends javax.swing.JFrame {
             }
 
         });
+        endGame=new Timer(5000, null);
+        endGame.start();
+        endGame.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               new Juego_Terminado().setVisible(true);
+               dispose();
+            }
+
+        });
         saldoActual();
 
         //crea un grupo de botones para selecicionr solo boton 
