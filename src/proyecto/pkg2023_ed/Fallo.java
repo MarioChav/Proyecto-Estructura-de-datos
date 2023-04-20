@@ -49,9 +49,9 @@ public class Fallo extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("El material seleccionado no coincide con las especificaciones del auto");
 
-        bttnconfirmacion.setBackground(new java.awt.Color(255, 255, 255));
+        bttnconfirmacion.setBackground(new java.awt.Color(0, 0, 0));
         bttnconfirmacion.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        bttnconfirmacion.setForeground(new java.awt.Color(0, 0, 0));
+        bttnconfirmacion.setForeground(new java.awt.Color(255, 255, 255));
         bttnconfirmacion.setText("Continuar");
         bttnconfirmacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
