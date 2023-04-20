@@ -159,8 +159,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = true;
                         valido = verficarRepetido(valido);
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial2.isSelected()) {
@@ -169,8 +169,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial3.isSelected()) {
@@ -179,8 +179,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
 
                     }
                 }
@@ -190,8 +190,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial5.isSelected()) {
@@ -200,8 +200,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial6.isSelected()) {
@@ -210,8 +210,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 break;
@@ -222,8 +222,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial2.isSelected()) {
@@ -232,8 +232,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial3.isSelected()) {
@@ -242,8 +242,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial4.isSelected()) {
@@ -252,8 +252,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial5.isSelected()) {
@@ -262,8 +262,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial6.isSelected()) {
@@ -272,8 +272,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 break;
@@ -284,8 +284,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial2.isSelected()) {
@@ -294,8 +294,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial3.isSelected()) {
@@ -304,8 +304,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial4.isSelected()) {
@@ -314,8 +314,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial5.isSelected()) {
@@ -324,8 +324,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
                 if (rbMaterial6.isSelected()) {
@@ -334,8 +334,8 @@ public class Ordenes extends javax.swing.JFrame {
                         valido = verficarRepetido(valido);
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "ERROR" + "\n" + "el material seleccionado no coincide con las especificaciones del auto");
                         valido = false;
+                        new Fallo().setVisible(true);
                     }
                 }
 
