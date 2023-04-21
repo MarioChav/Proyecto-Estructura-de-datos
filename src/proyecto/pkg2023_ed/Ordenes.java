@@ -16,13 +16,16 @@ public class Ordenes extends javax.swing.JFrame {
     private int salir;
     private int menuPrincipal;
     private static int segundosTranscurridos = 0;
-    private int saldoDisponible = 1500000;
+    private int saldoDisponible = 15000;
     private int radioB4 = 70000;
     private int radioB5 = 80000;
     private int radioB6 = 90000;
     int cantidadMateriales = 3;
     private boolean habilitar = false;
     private boolean habilitar2 = false;
+    private int pend = 0;
+    private int real = 0;
+    
 
     //Aqui van las costantes para los carros y materiales
     private String Maquinaria_pesada = "Maquinaria Pesada";
@@ -90,16 +93,31 @@ public class Ordenes extends javax.swing.JFrame {
                 //ImprimirColaString();
                 //System.out.print(laCola);
                 //System.out.println("");
+                pend =+1;
             }
 
-        });
+        });//800000
         endGame = new Timer(800000, null);
         endGame.start();
         endGame.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Juego_Terminado().setVisible(true);
+
+                if (saldoDisponible > 0 && real == pend) {
+                    Juego_Terminado.Ganó.setText("Ganó");
+                    Juego_Terminado.PresupuestoFinal.setText("" + saldoDisponible);
+                    Juego_Terminado.txtCantOrdenes.setText("Cantidad de ordenes"+ pend );
+                    Juego_Terminado.txtOrdenesRealizadas.setText("Cantidad de Ordenes realizadas: "+ real);
+                } else {
+                    Juego_Terminado.Ganó.setText("Perdió");
+                    Juego_Terminado.PresupuestoFinal.setText("" + saldoDisponible);
+                    Juego_Terminado.txtCantOrdenes.setText("Cantidad de ordenes: "+ pend );
+                    Juego_Terminado.txtOrdenesRealizadas.setText("Cantidad de Ordenes realizadas: "+ real);
+                }
                 dispose();
+                endGame.stop();
+                timer.stop();
             }
 
         });
@@ -127,7 +145,7 @@ public class Ordenes extends javax.swing.JFrame {
         System.out.println("");
 
     }
-
+    //Para que inicie la primera orden con un dato
     public void encolaPrimero() {
         int min = 1;
         int max = 3;
@@ -147,6 +165,7 @@ public class Ordenes extends javax.swing.JFrame {
 
         //System.out.flush();
         Ordenes.setText(laCola.frente.getDato());
+        pend =+1;
     }
 
     private boolean ValidarOrdenMateriales() {
@@ -830,10 +849,17 @@ public class Ordenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProximaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProximaOrdenActionPerformed
-        txtMaterial1.setText("");
-        txtMaterial2.setText("");
-        txtMaterial3.setText("");
-        laCola.nextOrder();
+        if(txtMaterial1.getText() != "" && txtMaterial2.getText() != "") {
+            txtMaterial1.setText("");
+            txtMaterial2.setText("");
+            txtMaterial3.setText("");
+            Ordenes.setText("");
+            laCola.nextOrder();
+            real =+1;
+        } else {
+            new Fallo_Orden().setVisible(true);
+        }
+        
 
     }//GEN-LAST:event_ProximaOrdenActionPerformed
 

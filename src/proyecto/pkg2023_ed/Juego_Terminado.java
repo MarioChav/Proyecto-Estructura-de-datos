@@ -26,17 +26,52 @@ public class Juego_Terminado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Ganó = new javax.swing.JLabel();
+        PresupuestoFinal = new javax.swing.JLabel();
+        txtCantOrdenes = new javax.swing.JLabel();
+        txtOrdenesRealizadas = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtCantOrdenes.setText("jLabel1");
+
+        txtOrdenesRealizadas.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(PresupuestoFinal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtCantOrdenes)))
+                .addContainerGap(182, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Ganó)
+                        .addGap(171, 171, 171))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtOrdenesRealizadas)
+                        .addGap(80, 80, 80))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(txtCantOrdenes)
+                .addGap(26, 26, 26)
+                .addComponent(Ganó)
+                .addGap(81, 81, 81)
+                .addComponent(PresupuestoFinal)
+                .addGap(18, 18, 18)
+                .addComponent(txtOrdenesRealizadas)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,5 +113,9 @@ public class Juego_Terminado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel Ganó;
+    public static javax.swing.JLabel PresupuestoFinal;
+    public static javax.swing.JLabel txtCantOrdenes;
+    public static javax.swing.JLabel txtOrdenesRealizadas;
     // End of variables declaration//GEN-END:variables
 }
