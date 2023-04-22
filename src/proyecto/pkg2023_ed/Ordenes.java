@@ -13,8 +13,6 @@ import javax.swing.*;
 public class Ordenes extends javax.swing.JFrame {
 
     //Variables
-    private int salir;
-    private int menuPrincipal;
     private static int segundosTranscurridos = 0;
     private int saldoDisponible = 15000;
     private int radioB4 = 70000;
@@ -43,7 +41,7 @@ public class Ordenes extends javax.swing.JFrame {
     /**
      * Creates new form Ordenes
      */
-    //Saldo
+    
     private static Timer timer;
     public Timer newOrderTime, newMaterial;
     public Timer endGame;
@@ -518,8 +516,8 @@ public class Ordenes extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        Salir = new javax.swing.JMenuItem();
+        menuPrincipal = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -821,25 +819,25 @@ public class Ordenes extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/opciones.png"))); // NOI18N
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/salir.png"))); // NOI18N
-        jMenuItem1.setText("Salir");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/salir.png"))); // NOI18N
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                SalirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(Salir);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/hogar.png"))); // NOI18N
-        jMenuItem2.setText("Menu Principal");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuPrincipal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/hogar.png"))); // NOI18N
+        menuPrincipal.setText("Menu Principal");
+        menuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuPrincipalActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(menuPrincipal);
 
         Menu.add(jMenu1);
 
@@ -859,8 +857,19 @@ public class Ordenes extends javax.swing.JFrame {
         } else {
             new Fallo_Orden().setVisible(true);
         }
-        
-
+        if (Ordenes.getText() == ("Super Auto")) {
+            saldoDisponible = saldoDisponible + 15000;
+            JOptionPane.showMessageDialog(null, "Prueba");
+            saldoActual();
+        }else if (Ordenes.getText() ==("Maquinaria Pesada")) {
+            saldoDisponible = saldoDisponible + 18000;
+            JOptionPane.showMessageDialog(null, "Prueba");
+            saldoActual();
+        }else if (Ordenes.getText() == ("Carro Carga")) {
+            saldoDisponible = saldoDisponible + 10000;
+            JOptionPane.showMessageDialog(null, "Prueba");
+            saldoActual();
+        }
     }//GEN-LAST:event_ProximaOrdenActionPerformed
 
     private void btnSelectMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectMaterialActionPerformed
@@ -937,22 +946,14 @@ public class Ordenes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSelectMaterialActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        menuPrincipal = JOptionPane.showConfirmDialog(null, "¿Desea ir al menú principal?",
-                "Menú principal", JOptionPane.YES_NO_OPTION);
-        if (menuPrincipal == 0) {
-            new Ingresar().setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void menuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPrincipalActionPerformed
+        new Ingresar().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuPrincipalActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        salir = JOptionPane.showConfirmDialog(null, "¿Desea salir?",
-                "Salir del Sistema", JOptionPane.YES_NO_OPTION);
-        if (salir == 0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        new Salir().setVisible(true);
+    }//GEN-LAST:event_SalirActionPerformed
 
     private void rbMaterial3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMaterial3ActionPerformed
         // TODO add your handling code here:
@@ -1080,6 +1081,7 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel Ordenes;
     private javax.swing.JButton ProximaOrden;
     private javax.swing.JLabel Saldo;
+    private javax.swing.JMenuItem Salir;
     private javax.swing.JPanel SecBasurero;
     private javax.swing.JPanel SecConstruccion;
     private javax.swing.JPanel SecMateriales;
@@ -1097,8 +1099,7 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem menuPrincipal;
     private javax.swing.JRadioButton rbMaterial1;
     private javax.swing.JRadioButton rbMaterial2;
     private javax.swing.JRadioButton rbMaterial3;
