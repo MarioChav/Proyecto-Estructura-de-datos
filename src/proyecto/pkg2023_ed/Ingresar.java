@@ -93,15 +93,7 @@ public class Ingresar extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SalirActionPerformed
 
     private void btn_Salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Salir1ActionPerformed
-        // TODO add your handling code here:
-        salir = JOptionPane.showConfirmDialog(null, "¿Desea salir?",
-                "Salir del Sistema", JOptionPane.YES_NO_OPTION);
-        if (salir == 0) {
-            System.exit(0);
-        }
-
-        //Cierro el formulario en pantalla
-        this.dispose();
+        new Salir().setVisible(true);
     }//GEN-LAST:event_btn_Salir1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

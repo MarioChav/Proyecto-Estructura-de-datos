@@ -15,7 +15,7 @@ public class Fallo extends javax.swing.JFrame {
      */
     public Fallo() {
         initComponents();
-        setTitle("Car-Factory/instrucciones");
+        setTitle("Car-Factory/Fallo");
         setResizable(false);
         this.setLocationRelativeTo(null);
     }

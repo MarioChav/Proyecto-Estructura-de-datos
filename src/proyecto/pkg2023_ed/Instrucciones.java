@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
  * @author mario
  */
 public class Instrucciones extends javax.swing.JFrame {
-    private int salir;
 
     
     public Instrucciones() {
@@ -150,12 +149,7 @@ public class Instrucciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        salir = JOptionPane.showConfirmDialog(null, "¿Desea salir?",
-                "Salir del Sistema", JOptionPane.YES_NO_OPTION);
-        if (salir == 0) {
-            System.exit(0);
-        }
+        new Salir().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
