@@ -47,7 +47,7 @@ public class Ingresar extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 0));
+        jButton1.setBackground(new java.awt.Color(51, 255, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Ingresar");
@@ -56,7 +56,7 @@ public class Ingresar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
 
         btn_Salir1.setBackground(new java.awt.Color(255, 0, 0));
         btn_Salir1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
@@ -67,20 +67,20 @@ public class Ingresar extends javax.swing.JFrame {
                 btn_Salir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
+        getContentPane().add(btn_Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carro-accesorios.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         Titulo.setBackground(new java.awt.Color(36, 34, 34));
         Titulo.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         Titulo.setForeground(new java.awt.Color(255, 0, 0));
-        Titulo.setText("Car-Factory");
+        Titulo.setText("CAR-FACTORY");
         Titulo.setOpaque(true);
-        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 270, 70));
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 330, 50));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 620));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

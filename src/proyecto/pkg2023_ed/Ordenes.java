@@ -1,3 +1,4 @@
+
 package proyecto.pkg2023_ed;
 
 import java.awt.Container;
@@ -23,6 +24,10 @@ public class Ordenes extends javax.swing.JFrame {
     private boolean habilitar2 = false;
     private int pend = 0;
     private int real = 0;
+    
+    private int gananciaMaquinaria_pesada = 18000;
+    private int gananciaSuper_auto = 15000;
+    private int gananciaCarro_carga = 10000;
     
 
     //Aqui van las costantes para los carros y materiales
@@ -94,24 +99,26 @@ public class Ordenes extends javax.swing.JFrame {
                 pend =+1;
             }
 
-        });//800000
+        });//800000//800000
         endGame = new Timer(800000, null);
         endGame.start();
         endGame.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Juego_Terminado().setVisible(true);
+                
 
                 if (saldoDisponible > 0 && real == pend) {
-                    Juego_Terminado.Ganó.setText("Ganó");
-                    Juego_Terminado.PresupuestoFinal.setText("" + saldoDisponible);
-                    Juego_Terminado.txtCantOrdenes.setText("Cantidad de ordenes"+ pend );
-                    Juego_Terminado.txtOrdenesRealizadas.setText("Cantidad de Ordenes realizadas: "+ real);
+                    new Juego_Terminado().setVisible(true);
+                    Juego_Terminado.Resultado.setText(" Ganaste ");
+                    Juego_Terminado.PresupuestoFinal.setText(" " + saldoDisponible);
+                    Juego_Terminado.txtCantOrdenes.setText(" "+ pend );
+                    Juego_Terminado.txtOrdenesRealizadas.setText(" "+ real);
                 } else {
-                    Juego_Terminado.Ganó.setText("Perdió");
-                    Juego_Terminado.PresupuestoFinal.setText("" + saldoDisponible);
-                    Juego_Terminado.txtCantOrdenes.setText("Cantidad de ordenes: "+ pend );
-                    Juego_Terminado.txtOrdenesRealizadas.setText("Cantidad de Ordenes realizadas: "+ real);
+                    new Juego_TerminadoPerdido().setVisible(true);
+                    Juego_TerminadoPerdido.ResultadoPerdida.setText(" Perdiste ");
+                    Juego_TerminadoPerdido.PresupuestoFinalPerdida.setText(" " + saldoDisponible);
+                    Juego_TerminadoPerdido.txtCantOrdenesPerdida.setText(" "+ pend );
+                    Juego_TerminadoPerdido.txtOrdenesRealizadasPerdida.setText(" "+ real);
                 }
                 dispose();
                 endGame.stop();
@@ -144,6 +151,7 @@ public class Ordenes extends javax.swing.JFrame {
 
     }
     //Para que inicie la primera orden con un dato
+    
     public void encolaPrimero() {
         int min = 1;
         int max = 3;
@@ -484,14 +492,12 @@ public class Ordenes extends javax.swing.JFrame {
     private void initComponents() {
 
         SecConstruccion = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        txtAuto = new javax.swing.JLabel();
+        TituloConstruccion = new javax.swing.JLabel();
         txtMaterial1 = new javax.swing.JLabel();
         txtMaterial2 = new javax.swing.JLabel();
         txtMaterial3 = new javax.swing.JLabel();
         ProximaOrden = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        btnCompra = new javax.swing.JButton();
         SecOrdenes = new javax.swing.JPanel();
         TituloOrdenes = new javax.swing.JLabel();
         Ordenes = new javax.swing.JLabel();
@@ -508,6 +514,7 @@ public class Ordenes extends javax.swing.JFrame {
         rbMaterial5 = new javax.swing.JRadioButton();
         rbMaterial6 = new javax.swing.JRadioButton();
         btnSelectMaterial = new javax.swing.JButton();
+        btnCompra = new javax.swing.JButton();
         SecBasurero = new javax.swing.JPanel();
         Basurero = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -523,22 +530,27 @@ public class Ordenes extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SecConstruccion.setBackground(new java.awt.Color(82, 163, 111));
+        SecConstruccion.setBackground(new java.awt.Color(35, 31, 32));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Contruccion de Auto Emblema Actual:");
+        TituloConstruccion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloConstruccion.setForeground(new java.awt.Color(255, 255, 0));
+        TituloConstruccion.setText("Contruccion de Auto Emblema Actual:");
 
         txtMaterial1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaterial1.setForeground(new java.awt.Color(0, 153, 153));
         txtMaterial1.setToolTipText("");
 
         txtMaterial2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaterial2.setForeground(new java.awt.Color(0, 153, 153));
         txtMaterial2.setToolTipText("");
 
         txtMaterial3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMaterial3.setForeground(new java.awt.Color(0, 153, 153));
         txtMaterial3.setToolTipText("");
 
         ProximaOrden.setBackground(new java.awt.Color(255, 255, 0));
         ProximaOrden.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        ProximaOrden.setForeground(new java.awt.Color(0, 0, 0));
         ProximaOrden.setText("Proxima Orden");
         ProximaOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -553,69 +565,61 @@ public class Ordenes extends javax.swing.JFrame {
             }
         });
 
-        btnCompra.setText("Comprar Espacio");
-        btnCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCompraActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout SecConstruccionLayout = new javax.swing.GroupLayout(SecConstruccion);
         SecConstruccion.setLayout(SecConstruccionLayout);
         SecConstruccionLayout.setHorizontalGroup(
             SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SecConstruccionLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SecConstruccionLayout.createSequentialGroup()
                         .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAuto)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtMaterial3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                .addComponent(txtMaterial1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(SecConstruccionLayout.createSequentialGroup()
+                                .addComponent(TituloConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE))
+                            .addGroup(SecConstruccionLayout.createSequentialGroup()
+                                .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(36, 36, 36))
                     .addGroup(SecConstruccionLayout.createSequentialGroup()
-                        .addComponent(txtMaterial2, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                        .addGap(341, 341, 341))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1)
-                .addGap(35, 35, 35)
-                .addComponent(btnCompra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ProximaOrden)
-                .addGap(18, 18, 18))
+                        .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ProximaOrden)
+                        .addGap(24, 24, 24))
+                    .addGroup(SecConstruccionLayout.createSequentialGroup()
+                        .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(49, 49, 49))))
         );
         SecConstruccionLayout.setVerticalGroup(
             SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAuto)
-                .addGap(36, 36, 36)
-                .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TituloConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(27, 27, 27)
+                .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProximaOrden))
                 .addGap(18, 18, 18)
                 .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProximaOrden)
-                    .addComponent(jButton1)
-                    .addComponent(btnCompra))
-                .addGap(27, 27, 27))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SecConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 490, 380));
+        getContentPane().add(SecConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 430, 210));
 
-        SecOrdenes.setBackground(new java.awt.Color(255, 153, 51));
+        SecOrdenes.setBackground(new java.awt.Color(35, 31, 32));
 
         TituloOrdenes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloOrdenes.setForeground(new java.awt.Color(255, 255, 0));
         TituloOrdenes.setText("Orden entrante:");
 
         Ordenes.setBackground(new java.awt.Color(0, 0, 0));
+        Ordenes.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout SecOrdenesLayout = new javax.swing.GroupLayout(SecOrdenes);
         SecOrdenes.setLayout(SecOrdenesLayout);
@@ -624,29 +628,31 @@ public class Ordenes extends javax.swing.JFrame {
             .addGroup(SecOrdenesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TituloOrdenes)
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
                 .addComponent(Ordenes, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         SecOrdenesLayout.setVerticalGroup(
             SecOrdenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SecOrdenesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(SecOrdenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Ordenes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TituloOrdenes))
+                .addGroup(SecOrdenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Ordenes, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(TituloOrdenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SecOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 24, 340, 40));
+        getContentPane().add(SecOrdenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 340, 40));
 
-        SecSaldo.setBackground(new java.awt.Color(0, 255, 102));
+        SecSaldo.setBackground(new java.awt.Color(35, 31, 32));
 
         TituloSaldo.setBackground(new java.awt.Color(255, 0, 0));
         TituloSaldo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloSaldo.setForeground(new java.awt.Color(255, 255, 0));
         TituloSaldo.setText("Saldo Actual:");
 
         Saldo.setBackground(new java.awt.Color(0, 0, 0));
+        Saldo.setForeground(new java.awt.Color(0, 255, 0));
 
         javax.swing.GroupLayout SecSaldoLayout = new javax.swing.GroupLayout(SecSaldo);
         SecSaldo.setLayout(SecSaldoLayout);
@@ -655,52 +661,72 @@ public class Ordenes extends javax.swing.JFrame {
             .addGroup(SecSaldoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TituloSaldo)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         SecSaldoLayout.setVerticalGroup(
             SecSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SecSaldoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(SecSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TituloSaldo))
+                .addGroup(SecSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Saldo, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(TituloSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SecSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 85, 240, 40));
+        getContentPane().add(SecSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 240, 40));
 
-        SecMateriales.setBackground(new java.awt.Color(0, 153, 153));
+        SecMateriales.setBackground(new java.awt.Color(35, 31, 32));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Espacios Disponibles en");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("la cinta transportadora");
 
-        rbMaterial1.setBackground(new java.awt.Color(0, 153, 153));
+        rbMaterial1.setBackground(new java.awt.Color(35, 31, 32));
+        rbMaterial1.setForeground(new java.awt.Color(0, 153, 153));
 
-        rbMaterial2.setBackground(new java.awt.Color(0, 153, 153));
+        rbMaterial2.setBackground(new java.awt.Color(35, 31, 32));
+        rbMaterial2.setForeground(new java.awt.Color(0, 153, 153));
 
-        rbMaterial3.setBackground(new java.awt.Color(0, 153, 153));
+        rbMaterial3.setBackground(new java.awt.Color(35, 31, 32));
+        rbMaterial3.setForeground(new java.awt.Color(0, 153, 153));
         rbMaterial3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbMaterial3ActionPerformed(evt);
             }
         });
 
-        rbMaterial4.setBackground(new java.awt.Color(0, 153, 153));
+        rbMaterial4.setBackground(new java.awt.Color(35, 31, 32));
+        rbMaterial4.setForeground(new java.awt.Color(0, 153, 153));
 
-        rbMaterial5.setBackground(new java.awt.Color(0, 153, 153));
+        rbMaterial5.setBackground(new java.awt.Color(35, 31, 32));
+        rbMaterial5.setForeground(new java.awt.Color(0, 153, 153));
 
-        rbMaterial6.setBackground(new java.awt.Color(0, 153, 153));
+        rbMaterial6.setBackground(new java.awt.Color(35, 31, 32));
+        rbMaterial6.setForeground(new java.awt.Color(0, 153, 153));
 
+        btnSelectMaterial.setBackground(new java.awt.Color(51, 255, 51));
         btnSelectMaterial.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        btnSelectMaterial.setForeground(new java.awt.Color(0, 0, 0));
         btnSelectMaterial.setText("Seleccionar");
         btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectMaterialActionPerformed(evt);
+            }
+        });
+
+        btnCompra.setBackground(new java.awt.Color(0, 153, 153));
+        btnCompra.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        btnCompra.setForeground(new java.awt.Color(0, 0, 0));
+        btnCompra.setText("Comprar Espacio");
+        btnCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompraActionPerformed(evt);
             }
         });
 
@@ -723,9 +749,11 @@ public class Ordenes extends javax.swing.JFrame {
                             .addGroup(SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnSelectMaterial))
-                        .addGap(22, 22, 22)))
-                .addGap(20, 20, 20))
+                            .addComponent(btnCompra)
+                            .addGroup(SecMaterialesLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(btnSelectMaterial)))))
+                .addGap(9, 9, 9))
             .addGroup(SecMaterialesLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -750,25 +778,32 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(rbMaterial5)
                 .addGap(18, 18, 18)
                 .addComponent(rbMaterial6)
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(btnSelectMaterial)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(btnCompra)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SecMateriales, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        getContentPane().add(SecMateriales, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, 400));
 
-        SecBasurero.setBackground(new java.awt.Color(153, 0, 0));
+        SecBasurero.setBackground(new java.awt.Color(35, 31, 32));
 
         Basurero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Basurero.setForeground(new java.awt.Color(255, 255, 0));
         Basurero.setText("Basurero");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 0));
         jLabel5.setText("Seleccione la parte");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
         jLabel6.setText("del carro para eliminar");
 
+        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
         btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -783,17 +818,19 @@ public class Ordenes extends javax.swing.JFrame {
             .addGroup(SecBasureroLayout.createSequentialGroup()
                 .addGroup(SecBasureroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SecBasureroLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(Basurero))
-                    .addGroup(SecBasureroLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(SecBasureroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5)
                             .addGroup(SecBasureroLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnEliminar)))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel5))))
+                    .addGroup(SecBasureroLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(btnEliminar))
+                    .addGroup(SecBasureroLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(Basurero)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         SecBasureroLayout.setVerticalGroup(
             SecBasureroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -804,17 +841,17 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnEliminar)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SecBasurero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 150, 120));
+        getContentPane().add(SecBasurero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 150, 130));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 640));
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 500));
 
-        Menu.setBackground(new java.awt.Color(102, 102, 102));
+        Menu.setBackground(new java.awt.Color(204, 204, 204));
         Menu.setForeground(new java.awt.Color(186, 186, 186));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/opciones.png"))); // NOI18N
@@ -847,6 +884,21 @@ public class Ordenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProximaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProximaOrdenActionPerformed
+        
+        
+        if (Ordenes.getText().equals(Super_auto)) {
+            saldoDisponible = saldoDisponible + gananciaSuper_auto;
+            saldoActual();
+        }
+        else if (Ordenes.getText().equals(Maquinaria_pesada)) {
+            saldoDisponible = saldoDisponible + gananciaMaquinaria_pesada;
+            saldoActual();
+        }else if (Ordenes.getText().equals(Carro_carga)) {
+            saldoDisponible = saldoDisponible + gananciaCarro_carga;
+            saldoActual();
+        }
+
+        
         if(txtMaterial1.getText() != "" && txtMaterial2.getText() != "") {
             txtMaterial1.setText("");
             txtMaterial2.setText("");
@@ -857,19 +909,7 @@ public class Ordenes extends javax.swing.JFrame {
         } else {
             new Fallo_Orden().setVisible(true);
         }
-        if (Ordenes.getText() == ("Super Auto")) {
-            saldoDisponible = saldoDisponible + 15000;
-            JOptionPane.showMessageDialog(null, "Prueba");
-            saldoActual();
-        }else if (Ordenes.getText() ==("Maquinaria Pesada")) {
-            saldoDisponible = saldoDisponible + 18000;
-            JOptionPane.showMessageDialog(null, "Prueba");
-            saldoActual();
-        }else if (Ordenes.getText() == ("Carro Carga")) {
-            saldoDisponible = saldoDisponible + 10000;
-            JOptionPane.showMessageDialog(null, "Prueba");
-            saldoActual();
-        }
+        
     }//GEN-LAST:event_ProximaOrdenActionPerformed
 
     private void btnSelectMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectMaterialActionPerformed
@@ -1087,6 +1127,7 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JPanel SecMateriales;
     private javax.swing.JPanel SecOrdenes;
     private javax.swing.JPanel SecSaldo;
+    private javax.swing.JLabel TituloConstruccion;
     private javax.swing.JLabel TituloOrdenes;
     private javax.swing.JLabel TituloSaldo;
     private javax.swing.JButton btnCompra;
@@ -1095,7 +1136,6 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
@@ -1106,7 +1146,6 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbMaterial4;
     private javax.swing.JRadioButton rbMaterial5;
     private javax.swing.JRadioButton rbMaterial6;
-    private javax.swing.JLabel txtAuto;
     private javax.swing.JLabel txtMaterial1;
     private javax.swing.JLabel txtMaterial2;
     private javax.swing.JLabel txtMaterial3;
