@@ -5,7 +5,6 @@ package proyecto.pkg2023_ed;
  * @author Joel Lopez
  */
 public class ListaMateriales {
-
     //atributos
     private NodoMateriales cabeza;
     private NodoMateriales ultimo;
@@ -14,9 +13,9 @@ public class ListaMateriales {
         return cabeza == null;
     }
     
-    //metodo para ingresar personas a la lista
+    //metodo para ingresar materiales a la lista
     public void inserta(String p, int id) {
-        if (cabeza == null) {//si esta vacia
+        if (cabeza == null) {
             cabeza = new NodoMateriales(p, id);
             ultimo = cabeza;
             ultimo.setNext(cabeza);
@@ -42,7 +41,6 @@ public class ListaMateriales {
         if (cabeza != null) {
             if (cabeza.getDato()== nombre) {
                 NodoMateriales aux = cabeza.getNext();
-                System.out.println("eliminado");
                 cabeza = aux;
                 ultimo.setNext(cabeza);
                 cabeza.setBack(ultimo);
@@ -52,7 +50,6 @@ public class ListaMateriales {
                     aux = aux.getNext();
                 }
                 if (aux.getNext() != cabeza && aux.getNext().getDato()== nombre) {
-                    System.out.println("eliminado");
                     aux.setNext(aux.getNext().getNext());
                     if (id == ultimo.getId()) {
                         ultimo = aux;
@@ -65,31 +62,7 @@ public class ListaMateriales {
             }
         }
     }
-
     
-    //eliminar material de la cinta
-    /*public void eliminar(int dato) {
-        if (!estaVacia()) {
-            Nodo actual = inicio;
-            Nodo anterior = inicio.anterior;
-            while (actual != anterior) {
-                if (actual.dato == dato) {
-                    if (actual == inicio) {
-                        inicio = inicio.siguiente;
-                    }
-                    actual.siguiente.anterior = actual.anterior;
-                    actual.anterior.siguiente = actual.siguiente;
-                    return;
-                }
-                actual = actual.siguiente;
-            }
-            if (actual.dato == dato) {
-                actual.siguiente.anterior = actual.anterior;
-                actual.anterior.siguiente = actual.siguiente;
-            }
-        }
-    }*/
-
     //to String
     @Override
     public String toString() {
@@ -108,6 +81,7 @@ public class ListaMateriales {
         return s;
     }
 
+    //metodo para imprimir un unico material
     public String ImprimirUno(int x, NodoMateriales aux) {
         if (x == 0) {
             return "";

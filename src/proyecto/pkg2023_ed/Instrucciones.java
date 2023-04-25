@@ -45,9 +45,9 @@ public class Instrucciones extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setBackground(new java.awt.Color(10, 220, 10));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Inicio");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,56 +58,56 @@ public class Instrucciones extends javax.swing.JFrame {
 
         Instrucciones.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones.setText("Las ordenes se deben construir en el orden de ingreso. Es decir, debes cumplir con la última orden antes de comenzar con una nueva. ");
         Instrucciones.setOpaque(true);
         getContentPane().add(Instrucciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         Instrucciones1.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones1.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones1.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones1.setText("En cada turno, recibirás una orden aleatoria para construir un auto emblemático de entre los 3 disponibles: ");
         Instrucciones1.setOpaque(true);
         getContentPane().add(Instrucciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         Instrucciones2.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones2.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones2.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones2.setText("Super auto deportivo, auto de carga de alta gama o maquinaria de última \ntecnología para trabajos pesados. "); // NOI18N
         Instrucciones2.setOpaque(true);
         getContentPane().add(Instrucciones2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         Instrucciones3.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones3.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones3.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones3.setText("Tendrás 8 minutos para construir la mayor cantidad de autos emblemáticos posible y ganar dinero. ");
         Instrucciones3.setOpaque(true);
         getContentPane().add(Instrucciones3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         Instrucciones4.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones4.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones4.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones4.setText("Comienzas con un presupuesto inicial de $15000. Cada vez que construyas un auto emblemático, ");
         Instrucciones4.setOpaque(true);
         getContentPane().add(Instrucciones4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         Instrucciones5.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones5.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones5.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones5.setText("ganarás una cantidad específica de dinero que se sumará a tu presupuesto. ");
         Instrucciones5.setOpaque(true);
         getContentPane().add(Instrucciones5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
         Instrucciones6.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones6.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones6.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones6.setText("Si terminas con órdenes pendientes o con tu presupuesto en negativo, perderás.");
         Instrucciones6.setOpaque(true);
         getContentPane().add(Instrucciones6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
         Instrucciones7.setBackground(new java.awt.Color(35, 33, 33));
         Instrucciones7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Instrucciones7.setForeground(new java.awt.Color(255, 255, 0));
+        Instrucciones7.setForeground(new java.awt.Color(250, 210, 1));
         Instrucciones7.setText("El objetivo del juego es construir la mayor cantidad de autos emblemáticos posible y ganar dinero. ");
         Instrucciones7.setOpaque(true);
         getContentPane().add(Instrucciones7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));

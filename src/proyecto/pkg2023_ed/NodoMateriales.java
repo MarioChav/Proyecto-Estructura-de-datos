@@ -50,9 +50,8 @@ public class NodoMateriales {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
 
+    //to string
     @Override
     public String toString(){
         return "" + dato ;

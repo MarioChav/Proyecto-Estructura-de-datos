@@ -10,7 +10,7 @@ public class ColaAutos {
     NodoC frente;
     NodoC ultimo;
 
-    //metodo queue 
+    //metodo queue para encolar los autos
     public void encola(NodoC d) {
         if (frente == null) {
             frente = d;
@@ -21,6 +21,7 @@ public class ColaAutos {
         }
     }
 
+    //metodo de toString
     public String toString(){
         String s ="";
         NodoC aux = frente;
@@ -31,12 +32,14 @@ public class ColaAutos {
         return s;     
     }
     
+    //metodo para enviar la sigueinte orden
     public NodoC nextOrder(){
-        NodoC aux = frente; // asignar un nodo auxiliar igual al frente de la cola
-        if(frente!=null){ //reviso si la cola no esta vacia
-            frente=frente.getAtras(); // frente de la cola tome el valor del siguiente nodo que sigue en cola o que esta atras
-            aux.setAtras(null); // al nodo aux lo desligo de la cola seteando el siguiente nodo como null
+        NodoC aux = frente; 
+        if(frente!=null){ 
+            frente=frente.getAtras(); 
+            aux.setAtras(null); 
+            aux.setAtras(null); 
         }
-        return aux; //retorno el nodo auxiliar
+        return aux; 
     }
 }

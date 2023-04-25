@@ -47,18 +47,18 @@ public class Ingresar extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setBackground(new java.awt.Color(10, 220, 10));
         jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, -1, -1));
 
-        btn_Salir1.setBackground(new java.awt.Color(255, 0, 0));
+        btn_Salir1.setBackground(new java.awt.Color(230, 50, 20));
         btn_Salir1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         btn_Salir1.setForeground(new java.awt.Color(255, 255, 255));
         btn_Salir1.setText("Salir");
@@ -67,14 +67,14 @@ public class Ingresar extends javax.swing.JFrame {
                 btn_Salir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+        getContentPane().add(btn_Salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carro-accesorios.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         Titulo.setBackground(new java.awt.Color(36, 34, 34));
         Titulo.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        Titulo.setForeground(new java.awt.Color(255, 0, 0));
+        Titulo.setForeground(new java.awt.Color(230, 50, 20));
         Titulo.setText("CAR-FACTORY");
         Titulo.setOpaque(true);
         getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 330, 50));

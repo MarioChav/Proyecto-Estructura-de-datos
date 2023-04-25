@@ -1,10 +1,7 @@
 
 package proyecto.pkg2023_ed;
 
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -12,35 +9,35 @@ import javax.swing.*;
  * @author Joel Lopez
  */
 public class Ordenes extends javax.swing.JFrame {
-
     //Variables
     private static int segundosTranscurridos = 0;
-    private int saldoDisponible = 15000;
-    private int radioB4 = 70000;
-    private int radioB5 = 80000;
-    private int radioB6 = 90000;
-    int cantidadMateriales = 3;
+    private int saldoDisponible = 15000;//cantidad de dinero disponible para el usuario
+    private int radioB4 = 70000;//precio del 4to radio button 
+    private int radioB5 = 80000;//precio del 5to radio button 
+    private int radioB6 = 90000;//precio del 6to radio button 
+    int cantidadMateriales = 3;//cantidad de materiales que se despliega inicialmente
     private boolean habilitar = false;
     private boolean habilitar2 = false;
     private int pend = 0;
     private int real = 0;
     
-    private int gananciaMaquinaria_pesada = 18000;
-    private int gananciaSuper_auto = 15000;
-    private int gananciaCarro_carga = 10000;
+    private int gananciaMaquinaria_pesada = 18000;//ganacia por la maquinaria pesada para el usuario
+    private int gananciaSuper_auto = 15000;//ganacia por el Super Auto para el usuario
+    private int gananciaCarro_carga = 10000;//ganacia por el Carro de carga para el usuario
     
 
-    //Aqui van las costantes para los carros y materiales
+    //Costantes para los carros
     private String Maquinaria_pesada = "Maquinaria Pesada";
     private String Super_auto = "Super Auto";
     private String Carro_carga = "Carro Carga";
-
+    //Costantes para los materiales
     private final String Motor_carga = "Motor de carga";
     private final String Carroceria = "Carroceria";
     private final String Motor_deportivo = "Motor especial deportivo";
     private final String Carroceria_especial = "Carroceria especial";
     private final String Llantas_trabajo = "Llantas unicas de trabajo";
 
+    //lista para generar los materiales de la cinta transportadora
     ListaMateriales laLista = new ListaMateriales();
 
     /**
@@ -62,13 +59,14 @@ public class Ordenes extends javax.swing.JFrame {
         rbMaterial5.setEnabled(false);
         rbMaterial6.setEnabled(false);
 
-        insertar(cantidadMateriales, 0);
-        agregarDatos(cantidadMateriales, 0);
-        encolaPrimero();
+        insertar(cantidadMateriales, 0);//ingreso de los materiales a la cinta
+        agregarDatos(cantidadMateriales, 0);//metodo que ingrese los materiales a los radio button
+        encolaPrimero();//metodo que encola sin timer la cola de autos
 
         NodoMateriales aux;
         aux = laLista.getCabeza();
 
+        //metodo para que aparezcan cada 15 seg autos
         newOrderTime = new Timer(15000, null);
         newOrderTime.start();
         newOrderTime.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +76,6 @@ public class Ordenes extends javax.swing.JFrame {
                 int max = 3;
                 int randomInt = (int) Math.floor(Math.random() * (max - min + 1)) + min;
 
-                //ColaAutos laCola = new ColaAutos();
                 switch (randomInt) {
                     case 1:
                         laCola.encola(new NodoC(Maquinaria_pesada));
@@ -93,20 +90,16 @@ public class Ordenes extends javax.swing.JFrame {
                 System.out.flush();
 
                 Ordenes.setText(laCola.frente.getDato());
-                //ImprimirColaString();
-                //System.out.print(laCola);
-                //System.out.println("");
                 pend =+1;
             }
 
-        });//800000//800000
-        endGame = new Timer(800000, null);
+        });
+        //metodo para terminar el juego
+        endGame = new Timer(480000, null);//timer de 8 minutos (480000 milisegundos) para terminar el tiempo
         endGame.start();
         endGame.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-
                 if (saldoDisponible > 0 && real == pend) {
                     new Juego_Terminado().setVisible(true);
                     Juego_Terminado.Resultado.setText(" Ganaste ");
@@ -122,7 +115,6 @@ public class Ordenes extends javax.swing.JFrame {
                 }
                 dispose();
                 endGame.stop();
-                timer.stop();
             }
 
         });
@@ -139,19 +131,12 @@ public class Ordenes extends javax.swing.JFrame {
 
     }
 
+    //metodo que envia al jFrame el saldo del usuario
     public void saldoActual() {
         Saldo.setText("$" + saldoDisponible);
     }
 
-    private void ImprimirColaString() {
-
-        System.out.println("Desde boton");
-        System.out.print(laCola);
-        System.out.println("");
-
-    }
-    //Para que inicie la primera orden con un dato
-    
+    //Metodo para que inicie la primera orden con un dato
     public void encolaPrimero() {
         int min = 1;
         int max = 3;
@@ -168,12 +153,11 @@ public class Ordenes extends javax.swing.JFrame {
                 laCola.encola(new NodoC(Carro_carga));
                 break;
         }
-
-        //System.out.flush();
         Ordenes.setText(laCola.frente.getDato());
         pend =+1;
     }
 
+    //metodo para validar que el usuario no seleccione un material incorrecto segun corrresponda cada auto
     private boolean ValidarOrdenMateriales() {
         boolean valido = false;
 
@@ -188,16 +172,17 @@ public class Ordenes extends javax.swing.JFrame {
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial2.isSelected()) {
                     if (rbMaterial2.getText().equals(Motor_carga) || rbMaterial2.getText().equals(Carroceria)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial3.isSelected()) {
                     if (rbMaterial3.getText().equals(Motor_carga) || rbMaterial3.getText().equals(Carroceria)) {
                         valido = true;
@@ -206,18 +191,18 @@ public class Ordenes extends javax.swing.JFrame {
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
-
                     }
                 }
+                
                 if (rbMaterial4.isSelected()) {
                     if (rbMaterial4.getText().equals(Motor_carga) || rbMaterial4.getText().equals(Carroceria)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
+                    
                 }
                 if (rbMaterial5.isSelected()) {
                     if (rbMaterial5.getText().equals(Motor_carga) || rbMaterial5.getText().equals(Carroceria)) {
@@ -240,6 +225,7 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 break;
+                
             case "Super Auto":
                 if (rbMaterial1.isSelected()) {
                     if (rbMaterial1.getText().equals(Motor_deportivo) || rbMaterial1.getText().equals(Carroceria)) {
@@ -261,6 +247,7 @@ public class Ordenes extends javax.swing.JFrame {
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial3.isSelected()) {
                     if (rbMaterial3.getText().equals(Motor_deportivo) || rbMaterial3.getText().equals(Carroceria)) {
                         valido = true;
@@ -271,6 +258,7 @@ public class Ordenes extends javax.swing.JFrame {
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial4.isSelected()) {
                     if (rbMaterial4.getText().equals(Motor_deportivo) || rbMaterial4.getText().equals(Carroceria)) {
                         valido = true;
@@ -281,6 +269,7 @@ public class Ordenes extends javax.swing.JFrame {
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial5.isSelected()) {
                     if (rbMaterial5.getText().equals(Motor_deportivo) || rbMaterial5.getText().equals(Carroceria)) {
                         valido = true;
@@ -291,6 +280,7 @@ public class Ordenes extends javax.swing.JFrame {
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial6.isSelected()) {
                     if (rbMaterial6.getText().equals(Motor_deportivo) || rbMaterial6.getText().equals(Carroceria)) {
                         valido = true;
@@ -302,57 +292,58 @@ public class Ordenes extends javax.swing.JFrame {
                     }
                 }
                 break;
+                
             case "Maquinaria Pesada":
                 if (rbMaterial1.isSelected()) {
                     if (rbMaterial1.getText().equals(Motor_carga) || rbMaterial1.getText().equals(Llantas_trabajo) || rbMaterial1.getText().equals(Carroceria_especial)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial2.isSelected()) {
                     if (rbMaterial2.getText().equals(Motor_carga) || rbMaterial2.getText().equals(Llantas_trabajo) || rbMaterial2.getText().equals(Carroceria_especial)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial3.isSelected()) {
                     if (rbMaterial3.getText().equals(Motor_carga) || rbMaterial3.getText().equals(Llantas_trabajo) || rbMaterial3.getText().equals(Carroceria_especial)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial4.isSelected()) {
                     if (rbMaterial4.getText().equals(Motor_carga) || rbMaterial4.getText().equals(Llantas_trabajo) || rbMaterial4.getText().equals(Carroceria_especial)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial5.isSelected()) {
                     if (rbMaterial5.getText().equals(Motor_carga) || rbMaterial5.getText().equals(Llantas_trabajo) || rbMaterial5.getText().equals(Carroceria_especial)) {
                         valido = true;
                         valido = verficarRepetido(valido);
-
                     } else {
                         valido = false;
                         new Fallo().setVisible(true);
                     }
                 }
+                
                 if (rbMaterial6.isSelected()) {
                     if (rbMaterial6.getText().equals(Motor_carga) || rbMaterial6.getText().equals(Llantas_trabajo) || rbMaterial6.getText().equals(Carroceria_especial)) {
                         valido = true;
@@ -368,69 +359,56 @@ public class Ordenes extends javax.swing.JFrame {
         return valido;
     }
 
+    //metodo para que el usuario no pueda ingresar dos veces el mismo material
     public boolean verficarRepetido(boolean pValido) {
         if (rbMaterial2.isSelected()) {
             if (txtMaterial1.getText().equals(rbMaterial2.getText()) || txtMaterial2.equals(rbMaterial2.getText())) {
                 pValido = false;
-
             } else {
                 pValido = true;
-
             }
         }
+        
         if (rbMaterial3.isSelected()) {
-
             if (txtMaterial1.getText().equals(rbMaterial3.getText()) || txtMaterial2.equals(rbMaterial3.getText())) {
-
                 pValido = false;
-
             } else {
                 pValido = true;
-
             }
         }
+        
         if (rbMaterial4.isSelected()) {
-
             if (txtMaterial1.getText().equals(rbMaterial4.getText()) || txtMaterial2.equals(rbMaterial4.getText())) {
-
                 pValido = false;
-
             } else {
                 pValido = true;
-
             }
         }
+        
         if (rbMaterial5.isSelected()) {
-
             if (txtMaterial1.getText().equals(rbMaterial5.getText()) || txtMaterial2.equals(rbMaterial5.getText())) {
-
                 pValido = false;
-
             } else {
                 pValido = true;
-
             }
         }
+        
         if (rbMaterial6.isSelected()) {
-
             if (txtMaterial1.getText().equals(rbMaterial6.getText()) || txtMaterial2.equals(rbMaterial6.getText())) {
-
                 pValido = false;
-
             } else {
                 pValido = true;
-
             }
         }
 
         return pValido;
     }
 
+    //metodo para ingresar de forma recursiva los datos de los materiales
     public int insertar(int x, int y) {
         if (x == y) {
             return x;
         } else {
-
             int mini = 1;
             int maxi = 5;
             int randomIn = (int) Math.floor(Math.random() * (maxi - mini + 1)) + mini;
@@ -446,13 +424,12 @@ public class Ordenes extends javax.swing.JFrame {
             } else if (randomIn == 5) {
                 laLista.inserta(Llantas_trabajo, 5);
             }
-
         }
-
+        
         return insertar(x - 1, 0);
-
     }
 
+    //metodo para agregar los datos a los Radio button
     public int agregarDatos(int x, int y) {
         if (x == y) {
             return x;
@@ -481,6 +458,38 @@ public class Ordenes extends javax.swing.JFrame {
         return agregarDatos(x - 1, 0);
 
     }
+    
+    //metodo para que el usuario pueda eliminar materiales no necesitados
+    //tmabien para limpiar los radio button cuando se selecciona un material
+    private void eliminarMateriales() {
+        NodoMateriales aux;
+        aux = laLista.getCabeza();
+        if (rbMaterial1.isSelected()) {
+            laLista.elminarMaterial(rbMaterial1.getText(), aux.getId());
+            insertar(1, 0);
+            agregarDatos(1, 0);
+        } else if (rbMaterial2.isSelected()) {
+            laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
+            insertar(1, 0);
+            rbMaterial2.setText(aux.getNext().getDato());
+        } else if (rbMaterial3.isSelected()) {
+            laLista.elminarMaterial(rbMaterial3.getText(), aux.getNext().getNext().getId());
+            insertar(1, 0);
+            rbMaterial3.setText(aux.getNext().getNext().getDato());
+        } else if (rbMaterial4.isSelected()) {
+            laLista.elminarMaterial(rbMaterial4.getText(), aux.getNext().getNext().getNext().getId());
+            insertar(1, 0);
+            rbMaterial4.setText(aux.getNext().getNext().getNext().getDato());
+        } else if (rbMaterial5.isSelected()) {
+            laLista.elminarMaterial(rbMaterial5.getText(), aux.getNext().getNext().getNext().getNext().getId());
+            insertar(1, 0);
+            rbMaterial5.setText(aux.getNext().getNext().getNext().getNext().getDato());
+        } else if (rbMaterial6.isSelected()) {
+            laLista.elminarMaterial(rbMaterial6.getText(), aux.getNext().getNext().getNext().getNext().getNext().getId());
+            insertar(1, 0);
+            rbMaterial6.setText(aux.getNext().getNext().getNext().getNext().getNext().getDato());
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -497,7 +506,6 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial2 = new javax.swing.JLabel();
         txtMaterial3 = new javax.swing.JLabel();
         ProximaOrden = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         SecOrdenes = new javax.swing.JPanel();
         TituloOrdenes = new javax.swing.JLabel();
         Ordenes = new javax.swing.JLabel();
@@ -533,7 +541,7 @@ public class Ordenes extends javax.swing.JFrame {
         SecConstruccion.setBackground(new java.awt.Color(35, 31, 32));
 
         TituloConstruccion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloConstruccion.setForeground(new java.awt.Color(255, 255, 0));
+        TituloConstruccion.setForeground(new java.awt.Color(250, 210, 1));
         TituloConstruccion.setText("Contruccion de Auto Emblema Actual:");
 
         txtMaterial1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -548,20 +556,12 @@ public class Ordenes extends javax.swing.JFrame {
         txtMaterial3.setForeground(new java.awt.Color(0, 153, 153));
         txtMaterial3.setToolTipText("");
 
-        ProximaOrden.setBackground(new java.awt.Color(255, 255, 0));
+        ProximaOrden.setBackground(new java.awt.Color(250, 210, 1));
         ProximaOrden.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        ProximaOrden.setForeground(new java.awt.Color(0, 0, 0));
         ProximaOrden.setText("Proxima Orden");
         ProximaOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProximaOrdenActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -573,24 +573,16 @@ public class Ordenes extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SecConstruccionLayout.createSequentialGroup()
-                        .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SecConstruccionLayout.createSequentialGroup()
-                                .addComponent(TituloConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE))
-                            .addGroup(SecConstruccionLayout.createSequentialGroup()
-                                .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(36, 36, 36))
-                    .addGroup(SecConstruccionLayout.createSequentialGroup()
-                        .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ProximaOrden)
                         .addGap(24, 24, 24))
                     .addGroup(SecConstruccionLayout.createSequentialGroup()
-                        .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(49, 49, 49))))
+                        .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TituloConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         SecConstruccionLayout.setVerticalGroup(
             SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,24 +590,26 @@ public class Ordenes extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(TituloConstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(27, 27, 27)
-                .addGroup(SecConstruccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ProximaOrden))
-                .addGap(18, 18, 18)
-                .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addGroup(SecConstruccionLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtMaterial3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecConstruccionLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ProximaOrden)
+                        .addGap(18, 18, 18))))
         );
 
-        getContentPane().add(SecConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 430, 210));
+        getContentPane().add(SecConstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 430, 220));
 
         SecOrdenes.setBackground(new java.awt.Color(35, 31, 32));
 
         TituloOrdenes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloOrdenes.setForeground(new java.awt.Color(255, 255, 0));
+        TituloOrdenes.setForeground(new java.awt.Color(250, 210, 1));
         TituloOrdenes.setText("Orden entrante:");
 
         Ordenes.setBackground(new java.awt.Color(0, 0, 0));
@@ -646,9 +640,9 @@ public class Ordenes extends javax.swing.JFrame {
 
         SecSaldo.setBackground(new java.awt.Color(35, 31, 32));
 
-        TituloSaldo.setBackground(new java.awt.Color(255, 0, 0));
+        TituloSaldo.setBackground(new java.awt.Color(0, 0, 0));
         TituloSaldo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloSaldo.setForeground(new java.awt.Color(255, 255, 0));
+        TituloSaldo.setForeground(new java.awt.Color(250, 210, 1));
         TituloSaldo.setText("Saldo Actual:");
 
         Saldo.setBackground(new java.awt.Color(0, 0, 0));
@@ -680,11 +674,11 @@ public class Ordenes extends javax.swing.JFrame {
         SecMateriales.setBackground(new java.awt.Color(35, 31, 32));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setForeground(new java.awt.Color(250, 210, 1));
         jLabel1.setText("Espacios Disponibles en");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel2.setForeground(new java.awt.Color(250, 210, 1));
         jLabel2.setText("la cinta transportadora");
 
         rbMaterial1.setBackground(new java.awt.Color(35, 31, 32));
@@ -710,9 +704,9 @@ public class Ordenes extends javax.swing.JFrame {
         rbMaterial6.setBackground(new java.awt.Color(35, 31, 32));
         rbMaterial6.setForeground(new java.awt.Color(0, 153, 153));
 
-        btnSelectMaterial.setBackground(new java.awt.Color(51, 255, 51));
+        btnSelectMaterial.setBackground(new java.awt.Color(10, 220, 10));
         btnSelectMaterial.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        btnSelectMaterial.setForeground(new java.awt.Color(0, 0, 0));
+        btnSelectMaterial.setForeground(new java.awt.Color(255, 255, 255));
         btnSelectMaterial.setText("Seleccionar");
         btnSelectMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -720,9 +714,9 @@ public class Ordenes extends javax.swing.JFrame {
             }
         });
 
-        btnCompra.setBackground(new java.awt.Color(0, 153, 153));
+        btnCompra.setBackground(new java.awt.Color(10, 180, 110));
         btnCompra.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        btnCompra.setForeground(new java.awt.Color(0, 0, 0));
+        btnCompra.setForeground(new java.awt.Color(255, 255, 255));
         btnCompra.setText("Comprar Espacio");
         btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -734,39 +728,37 @@ public class Ordenes extends javax.swing.JFrame {
         SecMateriales.setLayout(SecMaterialesLayout);
         SecMaterialesLayout.setHorizontalGroup(
             SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecMaterialesLayout.createSequentialGroup()
-                .addGroup(SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(SecMaterialesLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(SecMaterialesLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SecMaterialesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCompra)
+                            .addGroup(SecMaterialesLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(btnSelectMaterial))
                             .addComponent(rbMaterial1)
                             .addComponent(rbMaterial2)
                             .addComponent(rbMaterial3)
                             .addComponent(rbMaterial4)
                             .addGroup(SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(rbMaterial6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnCompra)
-                            .addGroup(SecMaterialesLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(btnSelectMaterial)))))
-                .addGap(9, 9, 9))
-            .addGroup(SecMaterialesLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(rbMaterial5, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGap(0, 29, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         SecMaterialesLayout.setVerticalGroup(
             SecMaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SecMaterialesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbMaterial1)
                 .addGap(18, 18, 18)
                 .addComponent(rbMaterial2)
@@ -778,32 +770,32 @@ public class Ordenes extends javax.swing.JFrame {
                 .addComponent(rbMaterial5)
                 .addGap(18, 18, 18)
                 .addComponent(rbMaterial6)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(btnSelectMaterial)
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(btnCompra)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
-        getContentPane().add(SecMateriales, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, 400));
+        getContentPane().add(SecMateriales, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 90, 190, 390));
 
         SecBasurero.setBackground(new java.awt.Color(35, 31, 32));
 
         Basurero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Basurero.setForeground(new java.awt.Color(255, 255, 0));
+        Basurero.setForeground(new java.awt.Color(250, 210, 1));
         Basurero.setText("Basurero");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel5.setForeground(new java.awt.Color(250, 210, 1));
         jLabel5.setText("Seleccione la parte");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel6.setForeground(new java.awt.Color(250, 210, 1));
         jLabel6.setText("del carro para eliminar");
 
-        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminar.setBackground(new java.awt.Color(230, 50, 20));
         btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -846,7 +838,7 @@ public class Ordenes extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(SecBasurero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 150, 130));
+        getContentPane().add(SecBasurero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 150, 130));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 500));
@@ -884,8 +876,6 @@ public class Ordenes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProximaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProximaOrdenActionPerformed
-        
-        
         if (Ordenes.getText().equals(Super_auto)) {
             saldoDisponible = saldoDisponible + gananciaSuper_auto;
             saldoActual();
@@ -898,7 +888,6 @@ public class Ordenes extends javax.swing.JFrame {
             saldoActual();
         }
 
-        
         if(txtMaterial1.getText() != "" && txtMaterial2.getText() != "") {
             txtMaterial1.setText("");
             txtMaterial2.setText("");
@@ -924,7 +913,6 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial1.getText());
                 }
                 material = rbMaterial1.getText();
-                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
                 eliminarMateriales();
             } else if (rbMaterial2.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
@@ -934,7 +922,6 @@ public class Ordenes extends javax.swing.JFrame {
                 } else if (txtMaterial3.getText().isEmpty()) {
                     txtMaterial3.setText(rbMaterial2.getText());
                 }
-                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
                 eliminarMateriales();
                 material = rbMaterial2.getText();
             } else if (rbMaterial3.isSelected()) {
@@ -946,7 +933,6 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial3.getText());
                 }
                 material = rbMaterial3.getText();
-                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
                 eliminarMateriales();
             } else if (rbMaterial4.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
@@ -957,7 +943,6 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial4.getText());
                 }
                 material = rbMaterial4.getText();
-                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
                 eliminarMateriales();
             } else if (rbMaterial5.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
@@ -968,7 +953,6 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial5.getText());
                 }
                 material = rbMaterial5.getText();
-                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
                 eliminarMateriales();
             } else if (rbMaterial6.isSelected()) {
                 if (txtMaterial1.getText().isEmpty()) {
@@ -979,10 +963,8 @@ public class Ordenes extends javax.swing.JFrame {
                     txtMaterial3.setText(rbMaterial6.getText());
                 }
                 material = rbMaterial6.getText();
-                //Elimina el texto de el rbMaterial con la funcion reciclada de elimianrMateriales() y coloca uno nuevo
                 eliminarMateriales();
             }
-            //eliminarMaterial(material);
         }
     }//GEN-LAST:event_btnSelectMaterialActionPerformed
 
@@ -1003,53 +985,13 @@ public class Ordenes extends javax.swing.JFrame {
         eliminarMateriales();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void eliminarMateriales() {
-        NodoMateriales aux;
-        aux = laLista.getCabeza();
-        if (rbMaterial1.isSelected()) {
-            laLista.elminarMaterial(rbMaterial1.getText(), aux.getId());
-            insertar(1, 0);
-            agregarDatos(1, 0);
-        } else if (rbMaterial2.isSelected()) {
-            laLista.elminarMaterial(rbMaterial2.getText(), aux.getNext().getId());
-            insertar(1, 0);
-            rbMaterial2.setText(aux.getNext().getDato());
-        } else if (rbMaterial3.isSelected()) {
-            laLista.elminarMaterial(rbMaterial3.getText(), aux.getNext().getNext().getId());
-            insertar(1, 0);
-            //agrega
-            rbMaterial3.setText(aux.getNext().getNext().getDato());
-        } else if (rbMaterial4.isSelected()) {
-            laLista.elminarMaterial(rbMaterial4.getText(), aux.getNext().getNext().getNext().getId());
-            insertar(1, 0);
-            rbMaterial4.setText(aux.getNext().getNext().getNext().getDato());
-        } else if (rbMaterial5.isSelected()) {
-            laLista.elminarMaterial(rbMaterial5.getText(), aux.getNext().getNext().getNext().getNext().getId());
-            insertar(1, 0);
-            rbMaterial5.setText(aux.getNext().getNext().getNext().getNext().getDato());
-        } else if (rbMaterial6.isSelected()) {
-            laLista.elminarMaterial(rbMaterial6.getText(), aux.getNext().getNext().getNext().getNext().getNext().getId());
-            insertar(1, 0);
-            rbMaterial6.setText(aux.getNext().getNext().getNext().getNext().getNext().getDato());
-        }
-    }
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        System.out.println(laCola.toString());
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
-
         if (radioB4 < saldoDisponible && habilitar == false) {
             cantidadMateriales += 1;
             insertar(cantidadMateriales, 0);
             agregarDatos(4, 0);
-
             habilitar = true;
             rbMaterial4.setEnabled(true);
-
             saldoDisponible = saldoDisponible - radioB4;
             saldoActual();
 
@@ -1057,10 +999,8 @@ public class Ordenes extends javax.swing.JFrame {
             cantidadMateriales += 1;
             insertar(cantidadMateriales, 0);
             agregarDatos(5, 0);
-
             habilitar2 = true;
             rbMaterial5.setEnabled(true);
-
             saldoDisponible -= radioB5;
             saldoActual();
 
@@ -1068,7 +1008,6 @@ public class Ordenes extends javax.swing.JFrame {
             cantidadMateriales += 1;
             insertar(cantidadMateriales, 0);
             agregarDatos(6, 0);
-
             rbMaterial6.setEnabled(true);
             saldoDisponible -= radioB6;
             saldoActual();
@@ -1133,7 +1072,6 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JButton btnCompra;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSelectMaterial;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

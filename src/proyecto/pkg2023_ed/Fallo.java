@@ -38,18 +38,18 @@ public class Fallo extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(35, 31, 32));
+        jPanel1.setForeground(new java.awt.Color(230, 50, 20));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setForeground(new java.awt.Color(230, 50, 20));
         jLabel1.setText("ERROR");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(230, 50, 20));
         jLabel2.setText("El material seleccionado no coincide con las especificaciones del auto");
 
-        bttnconfirmacion.setBackground(new java.awt.Color(0, 0, 0));
+        bttnconfirmacion.setBackground(new java.awt.Color(10, 180, 110));
         bttnconfirmacion.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         bttnconfirmacion.setForeground(new java.awt.Color(255, 255, 255));
         bttnconfirmacion.setText("Continuar");
@@ -88,7 +88,7 @@ public class Fallo extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 130));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

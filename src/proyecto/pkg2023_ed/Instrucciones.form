@@ -67,13 +67,13 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="ff" red="33" type="rgb"/>
+          <Color blue="a" green="dc" red="a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Semibold" size="14" style="3"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Inicio"/>
       </Properties>
@@ -95,7 +95,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Las ordenes se deben construir en el orden de ingreso. Es decir, debes cumplir con la &#xfa;ltima orden antes de comenzar con una nueva. "/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -115,7 +115,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="En cada turno, recibir&#xe1;s una orden aleatoria para construir un auto emblem&#xe1;tico de entre los 3 disponibles: "/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -135,7 +135,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Super auto deportivo, auto de carga de alta gama o maquinaria de &#xfa;ltima &#xa;tecnolog&#xed;a para trabajos pesados. " noResource="true"/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -155,7 +155,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tendr&#xe1;s 8 minutos para construir la mayor cantidad de autos emblem&#xe1;ticos posible y ganar dinero. "/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -175,7 +175,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Comienzas con un presupuesto inicial de $15000. Cada vez que construyas un auto emblem&#xe1;tico, "/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -195,7 +195,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ganar&#xe1;s una cantidad espec&#xed;fica de dinero que se sumar&#xe1; a tu presupuesto. "/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -215,7 +215,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Si terminas con &#xf3;rdenes pendientes o con tu presupuesto en negativo, perder&#xe1;s."/>
         <Property name="opaque" type="boolean" value="true"/>
@@ -235,7 +235,7 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
+          <Color blue="1" green="d2" red="fa" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="El objetivo del juego es construir la mayor cantidad de autos emblem&#xe1;ticos posible y ganar dinero. "/>
         <Property name="opaque" type="boolean" value="true"/>

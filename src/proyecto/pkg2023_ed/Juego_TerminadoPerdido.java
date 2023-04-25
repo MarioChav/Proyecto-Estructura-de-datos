@@ -51,28 +51,28 @@ public class Juego_TerminadoPerdido extends javax.swing.JFrame {
         Tablaperdida.setBackground(new java.awt.Color(35, 31, 32));
 
         TituloResultadoPerdida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloResultadoPerdida.setForeground(new java.awt.Color(255, 255, 0));
+        TituloResultadoPerdida.setForeground(new java.awt.Color(250, 210, 1));
         TituloResultadoPerdida.setText("Resultado: ");
         TituloResultadoPerdida.setToolTipText("");
 
         ResultadoPerdida.setForeground(new java.awt.Color(204, 0, 0));
 
         TituloSaldoPerdida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloSaldoPerdida.setForeground(new java.awt.Color(255, 255, 0));
+        TituloSaldoPerdida.setForeground(new java.awt.Color(250, 210, 1));
         TituloSaldoPerdida.setText("Saldo Final:  ");
         TituloSaldoPerdida.setToolTipText("");
 
         PresupuestoFinalPerdida.setForeground(new java.awt.Color(204, 0, 0));
 
         TituloOrdenesPerdida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloOrdenesPerdida.setForeground(new java.awt.Color(255, 255, 0));
+        TituloOrdenesPerdida.setForeground(new java.awt.Color(250, 210, 1));
         TituloOrdenesPerdida.setText("Total de ordenes:  ");
         TituloOrdenesPerdida.setToolTipText("");
 
         txtCantOrdenesPerdida.setForeground(new java.awt.Color(204, 0, 0));
 
         TituloOrdenesRealizadasPerdida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloOrdenesRealizadasPerdida.setForeground(new java.awt.Color(255, 255, 0));
+        TituloOrdenesRealizadasPerdida.setForeground(new java.awt.Color(250, 210, 1));
         TituloOrdenesRealizadasPerdida.setText("Ordenes realizadas:  ");
         TituloOrdenesRealizadasPerdida.setToolTipText("");
 
@@ -94,7 +94,7 @@ public class Juego_TerminadoPerdido extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PresupuestoFinalPerdida, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TablaperdidaLayout.createSequentialGroup()
-                        .addComponent(TituloOrdenesPerdida, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TituloOrdenesPerdida, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCantOrdenesPerdida, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TablaperdidaLayout.createSequentialGroup()
@@ -134,18 +134,18 @@ public class Juego_TerminadoPerdido extends javax.swing.JFrame {
         TituloPerdida.setOpaque(true);
         getContentPane().add(TituloPerdida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 260, 50));
 
-        MenuPrincipal.setBackground(new java.awt.Color(51, 255, 51));
+        MenuPrincipal.setBackground(new java.awt.Color(10, 220, 10));
         MenuPrincipal.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        MenuPrincipal.setForeground(new java.awt.Color(0, 0, 0));
+        MenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Menu Principal");
         MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuPrincipalActionPerformed(evt);
             }
         });
-        getContentPane().add(MenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
+        getContentPane().add(MenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
-        Salir.setBackground(new java.awt.Color(255, 0, 0));
+        Salir.setBackground(new java.awt.Color(230, 50, 20));
         Salir.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         Salir.setForeground(new java.awt.Color(255, 255, 255));
         Salir.setText("Salir");
@@ -154,18 +154,18 @@ public class Juego_TerminadoPerdido extends javax.swing.JFrame {
                 SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
+        getContentPane().add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
-        Reintentar.setBackground(new java.awt.Color(51, 255, 51));
+        Reintentar.setBackground(new java.awt.Color(10, 220, 10));
         Reintentar.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
-        Reintentar.setForeground(new java.awt.Color(0, 0, 0));
+        Reintentar.setForeground(new java.awt.Color(255, 255, 255));
         Reintentar.setText("Jugar de nuevo");
         Reintentar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReintentarActionPerformed(evt);
             }
         });
-        getContentPane().add(Reintentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
+        getContentPane().add(Reintentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 340));

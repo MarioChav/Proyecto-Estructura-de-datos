@@ -44,24 +44,23 @@ public class Salir extends javax.swing.JFrame {
 
         Instrucciones1.setBackground(new java.awt.Color(35, 31, 32));
         Instrucciones1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Instrucciones1.setForeground(new java.awt.Color(255, 255, 0));
-        Instrucciones1.setText("Quieres cerrar el programa?");
+        Instrucciones1.setForeground(new java.awt.Color(250, 210, 1));
+        Instrucciones1.setText("¿Quieres cerrar el programa?");
         Instrucciones1.setOpaque(true);
-        Salir.add(Instrucciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 330, 50));
+        Salir.add(Instrucciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 330, 50));
 
-        bttnCancelar.setBackground(new java.awt.Color(0, 0, 0));
+        bttnCancelar.setBackground(new java.awt.Color(10, 180, 110));
         bttnCancelar.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         bttnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         bttnCancelar.setText("Cancelar");
-        bttnCancelar.setActionCommand("Cancelar");
         bttnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnCancelarActionPerformed(evt);
             }
         });
-        Salir.add(bttnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+        Salir.add(bttnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        bttnSalir.setBackground(new java.awt.Color(0, 0, 0));
+        bttnSalir.setBackground(new java.awt.Color(230, 50, 20));
         bttnSalir.setFont(new java.awt.Font("Segoe UI Semibold", 3, 14)); // NOI18N
         bttnSalir.setForeground(new java.awt.Color(255, 255, 255));
         bttnSalir.setText("Salir");
@@ -70,7 +69,7 @@ public class Salir extends javax.swing.JFrame {
                 bttnSalirActionPerformed(evt);
             }
         });
-        Salir.add(bttnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        Salir.add(bttnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpeg"))); // NOI18N
         Salir.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 130));
