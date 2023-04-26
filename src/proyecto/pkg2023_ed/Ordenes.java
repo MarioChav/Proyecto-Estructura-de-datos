@@ -892,7 +892,7 @@ public class Ordenes extends javax.swing.JFrame {
             txtMaterial1.setText("");
             txtMaterial2.setText("");
             txtMaterial3.setText("");
-            Ordenes.setText("");
+            Ordenes.setText("Sin Ordenes");
             laCola.nextOrder();
             real =+1;
         } else {
